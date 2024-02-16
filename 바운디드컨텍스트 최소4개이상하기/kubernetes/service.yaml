@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: 바운디드컨텍스트 최소4개이상하기
+  labels:
+    app: 바운디드컨텍스트 최소4개이상하기
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: 바운디드컨텍스트 최소4개이상하기
