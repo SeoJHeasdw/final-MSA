@@ -82,7 +82,7 @@
 
 
     export default {
-        name: 'AiRobotAirobot',
+        name: 'AirobotAirobot',
         components:{
         },
         props: {

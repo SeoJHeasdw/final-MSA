@@ -23,7 +23,7 @@ See the README.md files inside the each microservices directory:
 - order
 - install
 - payment
-- AIRobot
+- airobot
 - workerSystem
 
 
@@ -45,7 +45,7 @@ mvn spring-boot:run
 - payment
 ```
 ```
-- AIRobot
+- airobot
 ```
 ```
 - workerSystem

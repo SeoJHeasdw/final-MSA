@@ -21,7 +21,7 @@ spring:
           uri: http://localhost:8084
           predicates:
             - Path=, 
-        - id: AIRobot
+        - id: airobot
           uri: http://localhost:8085
           predicates:
             - Path=, 
@@ -65,8 +65,8 @@ spring:
           uri: http://payment:8080
           predicates:
             - Path=, 
-        - id: AIRobot
-          uri: http://aiRobot:8080
+        - id: airobot
+          uri: http://airobot:8080
           predicates:
             - Path=, 
         - id: workerSystem

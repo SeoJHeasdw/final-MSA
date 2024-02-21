@@ -70,7 +70,7 @@
                         transition="dialog-bottom-transition"
                 >
 
-                    <AiRobotAirobot :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <AirobotAirobot :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                             style="postition:absolute; top:2%; right:2%"
@@ -89,12 +89,12 @@
 
 <script>
     const axios = require('axios').default;
-    import AiRobotAirobot from './../AiRobotAirobot.vue';
+    import AirobotAirobot from './../AirobotAirobot.vue';
 
     export default {
-        name: 'AiRobotAirobotManager',
+        name: 'AirobotAirobotManager',
         components: {
-            AiRobotAirobot,
+            AirobotAirobot,
         },
         props: {
             offline: Boolean,

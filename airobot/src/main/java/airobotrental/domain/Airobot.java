@@ -1,6 +1,6 @@
 package airobotrental.domain;
 
-import airobotrental.AiRobotApplication;
+import airobotrental.AirobotApplication;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Airobot {
     private String useStatus;
 
     public static AirobotRepository repository() {
-        AirobotRepository airobotRepository = AiRobotApplication.applicationContext.getBean(
+        AirobotRepository airobotRepository = AirobotApplication.applicationContext.getBean(
             AirobotRepository.class
         );
         return airobotRepository;

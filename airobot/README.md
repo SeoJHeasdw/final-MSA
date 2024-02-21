@@ -1,4 +1,4 @@
-# AIRobot
+# airobot
 
 ## Running in local development environment
 
@@ -10,8 +10,8 @@ mvn spring-boot:run
 
 ```
 mvn package -B -DskipTests
-docker build -t username/AIRobot:v1 .
-docker run username/AIRobot:v1
+docker build -t username/airobot:v1 .
+docker run username/airobot:v1
 ```
 
 ## Push images and running in Kubernetes
@@ -20,15 +20,15 @@ docker run username/AIRobot:v1
 docker login 
 # in case of docker hub, enter your username and password
 
-docker push username/AIRobot:v1
+docker push username/airobot:v1
 ```
 
 Edit the deployment.yaml under the /kubernetes directory:
 ```
     spec:
       containers:
-        - name: AIRobot
-          image: username/AIRobot:latest   # change this image name
+        - name: airobot
+          image: username/airobot:latest   # change this image name
           ports:
             - containerPort: 8080
 
@@ -41,13 +41,13 @@ kubectl apply -f kubernetes/deployment.yaml
 
 See the pod status:
 ```
-kubectl get pods -l app=AIRobot
+kubectl get pods -l app=airobot
 ```
 
 If you have no problem, you can connect to the service by opening a proxy between your local and the kubernetes by using this command:
 ```
 # new terminal
-kubectl port-forward deploy/AIRobot 8080:8080
+kubectl port-forward deploy/airobot 8080:8080
 
 # another terminal
 http localhost:8080
@@ -55,7 +55,7 @@ http localhost:8080
 
 If you have any problem on running the pod, you can find the reason by hitting this:
 ```
-kubectl logs -l app=AIRobot
+kubectl logs -l app=airobot
 ```
 
 Following problems may be occurred:

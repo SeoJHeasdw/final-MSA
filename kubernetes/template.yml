@@ -123,22 +123,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: AIRobot
+  name: airobot
   labels:
-    app: AIRobot
+    app: airobot
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: AIRobot
+      app: airobot
   template:
     metadata:
       labels:
-        app: AIRobot
+        app: airobot
     spec:
       containers:
-        - name: AIRobot
-          image: username/AIRobot:latest
+        - name: airobot
+          image: username/airobot:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -256,15 +256,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: AIRobot
+  name: airobot
   labels:
-    app: AIRobot
+    app: airobot
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: AIRobot
+    app: airobot
 
 
 ---

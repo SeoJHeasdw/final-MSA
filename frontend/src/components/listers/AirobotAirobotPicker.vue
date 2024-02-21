@@ -43,7 +43,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'AiRobotAirobotPicker',
+        name: 'AirobotAirobotPicker',
         props: {
             value: [String, Object, Array, Number, Boolean],
         },

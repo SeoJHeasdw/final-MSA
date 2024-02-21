@@ -1,6 +1,6 @@
 package airobotrental.infra;
 
-import airobotrental.AiRobotApplication;
+import airobotrental.AirobotApplication;
 import airobotrental.config.kafka.KafkaProcessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +32,7 @@ public class AbstractEvent {
         /**
          * spring streams 방식
          */
-        KafkaProcessor processor = AiRobotApplication.applicationContext.getBean(
+        KafkaProcessor processor = AirobotApplication.applicationContext.getBean(
             KafkaProcessor.class
         );
         MessageChannel outputChannel = processor.outboundTopic();

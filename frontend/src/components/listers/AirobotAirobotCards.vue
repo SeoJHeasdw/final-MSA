@@ -27,7 +27,7 @@
                         hide-overlay
                         transition="dialog-bottom-transition"
                 >
-                    <AiRobotAirobot :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" 
+                    <AirobotAirobot :offline="offline" class="video-card" :isNew="true" :editMode="true" v-model="newValue" 
                             @add="append" v-if="tick"/>
 
                     <v-btn
@@ -74,7 +74,7 @@
             </div>
         </v-col>
         <v-row>
-            <AiRobotAirobot :offline="offline" class="video-card" v-for="(value, index) in values" v-model="values[index]" v-bind:key="index" @delete="remove"/>
+            <AirobotAirobot :offline="offline" class="video-card" v-for="(value, index) in values" v-model="values[index]" v-bind:key="index" @delete="remove"/>
         </v-row>
     </div>
 </template>
@@ -82,12 +82,12 @@
 <script>
 
     const axios = require('axios').default;
-    import AiRobotAirobot from './../AiRobotAirobot.vue';
+    import AirobotAirobot from './../AirobotAirobot.vue';
 
     export default {
-        name: 'AiRobotAirobotManager',
+        name: 'AirobotAirobotManager',
         components: {
-            AiRobotAirobot,
+            AirobotAirobot,
         },
         props: {
             offline: Boolean

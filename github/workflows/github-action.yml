@@ -32,7 +32,7 @@ jobs:
           mvn clean package -f ./order/pom.xml
           mvn clean package -f ./install/pom.xml
           mvn clean package -f ./payment/pom.xml
-          mvn clean package -f ./AIRobot/pom.xml
+          mvn clean package -f ./airobot/pom.xml
           mvn clean package -f ./workerSystem/pom.xml
 
       - name: Docker Build and push for Order
@@ -65,10 +65,10 @@ jobs:
             ghcr.io/${{ github.repository }}/payment:latest
             ghcr.io/${{ github.repository }}/payment:${{ github.ref_name }}
             
-      - name: Docker Build and push for AiRobot
+      - name: Docker Build and push for Airobot
         uses: docker/build-push-action@v4
         with:
-          context: ./AIRobot
+          context: ./airobot
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |

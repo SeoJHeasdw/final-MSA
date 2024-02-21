@@ -63,7 +63,7 @@
     const axios = require('axios').default;
 
     export default {
-        name: 'AiRobotAirobotDetail',
+        name: 'AirobotAirobotDetail',
         components:{},
         props: {
         },
