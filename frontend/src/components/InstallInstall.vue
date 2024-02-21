@@ -17,11 +17,11 @@
 
         <v-card-text>
             <Number v-if="editMode" label="DeliveryId" v-model="value.deliveryId" :editMode="editMode" :inputUI="''"/>
-            <String label="AirobotName" v-model="value.airobotName" :editMode="editMode" :inputUI="''"/>
             <Number label="Qty" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
             <String label="DeliveryStatus" v-model="value.deliveryStatus" :editMode="editMode" :inputUI="''"/>
             <String label="Address" v-model="value.address" :editMode="editMode" :inputUI="''"/>
             <Number label="OrderId" v-model="value.orderId" :editMode="editMode" :inputUI="''"/>
+            <Number label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

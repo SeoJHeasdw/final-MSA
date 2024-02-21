@@ -45,6 +45,7 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -53,6 +54,7 @@
                             [ DeliveryId :  {{data.deliveryId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UseStatus :  {{data.useStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ DelivertStatus :  {{data.delivertStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ AirobotId :  {{data.airobotId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -125,6 +127,7 @@
                 'deliveryId': 0,
                 'useStatus': '',
                 'delivertStatus': '',
+                'airobotId': 0,
             }
         },
         methods: {

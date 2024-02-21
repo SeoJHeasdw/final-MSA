@@ -67,8 +67,8 @@
             headers: 
                 [
                     { text: "orderId", value: "orderId" },
-                    { text: "airobotName", value: "airobotName" },
                     { text: "qty", value: "qty" },
+                    { text: "airobotId", value: "airobotId" },
                 ],
             order : [],
             newValue: {},
@@ -87,8 +87,8 @@
 
             this.newValue = {
                 'orderId': 0,
-                'airobotName': '',
                 'qty': 0,
+                'airobotId': 0,
             }
         },
         methods: {

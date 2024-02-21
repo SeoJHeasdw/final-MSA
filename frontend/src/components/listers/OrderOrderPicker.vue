@@ -18,10 +18,10 @@
                                 OrderId :  {{item.orderId }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                AirobotName :  {{item.airobotName }}
+                                Qty :  {{item.qty }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                Qty :  {{item.qty }}
+                                AirobotId :  {{item.airobotId }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

@@ -35,15 +35,15 @@ mvn spring-boot:run
 ## Test by API
 - order
 ```
- http :8088/orders orderId="orderId" airobotName="airobotName" qty="qty" 
+ http :8088/orders orderId="orderId" qty="qty" airobotId="airobotId" 
 ```
 - install
 ```
- http :8088/installs deliveryId="deliveryId" airobotName="airobotName" qty="qty" deliveryStatus="deliveryStatus" address="address" orderId="orderId" 
+ http :8088/installs deliveryId="deliveryId" qty="qty" deliveryStatus="deliveryStatus" address="address" orderId="orderId" airobotId="airobotId" 
 ```
 - payment
 ```
- http :8088/payments paymentId="paymentId" orderId="orderId" deliveryId="deliveryId" useStatus="useStatus" delivertStatus="delivertStatus" 
+ http :8088/payments paymentId="paymentId" orderId="orderId" deliveryId="deliveryId" useStatus="useStatus" delivertStatus="delivertStatus" airobotId="airobotId" 
 ```
 - airobot
 ```

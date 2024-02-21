@@ -67,11 +67,11 @@
             headers: 
                 [
                     { text: "deliveryId", value: "deliveryId" },
-                    { text: "airobotName", value: "airobotName" },
                     { text: "qty", value: "qty" },
                     { text: "deliveryStatus", value: "deliveryStatus" },
                     { text: "address", value: "address" },
                     { text: "orderId", value: "orderId" },
+                    { text: "airobotId", value: "airobotId" },
                 ],
             install : [],
             newValue: {},
@@ -90,11 +90,11 @@
 
             this.newValue = {
                 'deliveryId': 0,
-                'airobotName': '',
                 'qty': 0,
                 'deliveryStatus': '',
                 'address': '',
                 'orderId': 0,
+                'airobotId': 0,
             }
         },
         methods: {

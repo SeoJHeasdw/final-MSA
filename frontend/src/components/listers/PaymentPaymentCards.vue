@@ -114,6 +114,7 @@
                 'deliveryId': 0,
                 'useStatus': '',
                 'delivertStatus': '',
+                'airobotId': 0,
             }
         },
         methods:{

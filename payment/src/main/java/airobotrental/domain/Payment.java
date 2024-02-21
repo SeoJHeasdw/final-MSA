@@ -28,6 +28,8 @@ public class Payment {
 
     private String delivertStatus;
 
+    private Long airobotId;
+
     @PostPersist
     public void onPostPersist() {
         PaymentPaused paymentPaused = new PaymentPaused(this);

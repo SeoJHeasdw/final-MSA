@@ -20,6 +20,9 @@
             <div>
                 <String label="DelivertStatus" v-model="item.delivertStatus" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <Number label="AirobotId" v-model="item.airobotId" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

@@ -110,8 +110,8 @@
             
             me.newValue = {
                 'orderId': 0,
-                'airobotName': '',
                 'qty': 0,
+                'airobotId': 0,
             }
         },
         methods:{
