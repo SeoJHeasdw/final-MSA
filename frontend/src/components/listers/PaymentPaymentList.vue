@@ -49,7 +49,7 @@
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ PaymentId :  {{data.paymentId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ DeliveryId :  {{data.deliveryId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UseStatus :  {{data.useStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -122,7 +122,6 @@
             this.values = temp.data._embedded.payments;
             
             this.newValue = {
-                'paymentId': 0,
                 'orderId': 0,
                 'deliveryId': 0,
                 'useStatus': '',

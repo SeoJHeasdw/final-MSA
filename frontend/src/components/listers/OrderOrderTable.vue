@@ -66,7 +66,7 @@
             values: [],
             headers: 
                 [
-                    { text: "orderId", value: "orderId" },
+                    { text: "id", value: "id" },
                     { text: "qty", value: "qty" },
                     { text: "airobotId", value: "airobotId" },
                 ],
@@ -86,7 +86,6 @@
             this.values = temp.data._embedded.orders;
 
             this.newValue = {
-                'orderId': 0,
                 'qty': 0,
                 'airobotId': 0,
             }

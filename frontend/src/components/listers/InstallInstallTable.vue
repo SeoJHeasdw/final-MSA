@@ -66,12 +66,13 @@
             values: [],
             headers: 
                 [
-                    { text: "deliveryId", value: "deliveryId" },
+                    { text: "id", value: "id" },
                     { text: "qty", value: "qty" },
                     { text: "deliveryStatus", value: "deliveryStatus" },
                     { text: "address", value: "address" },
                     { text: "orderId", value: "orderId" },
                     { text: "airobotId", value: "airobotId" },
+                    { text: "deliveryId", value: "deliveryId" },
                 ],
             install : [],
             newValue: {},
@@ -89,12 +90,12 @@
             this.values = temp.data._embedded.installs;
 
             this.newValue = {
-                'deliveryId': 0,
                 'qty': 0,
                 'deliveryStatus': '',
                 'address': '',
                 'orderId': 0,
                 'airobotId': 0,
+                'deliveryId': 0,
             }
         },
         methods: {

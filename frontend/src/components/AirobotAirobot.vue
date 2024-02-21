@@ -16,10 +16,10 @@
         </v-card-title >        
 
         <v-card-text>
-            <Number v-if="editMode" label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
             <String label="AirobotName" v-model="value.airobotName" :editMode="editMode" :inputUI="''"/>
             <Number label="Stock" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
             <String label="UseStatus" v-model="value.useStatus" :editMode="editMode" :inputUI="''"/>
+            <Number label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

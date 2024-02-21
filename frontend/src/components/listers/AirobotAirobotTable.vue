@@ -66,10 +66,11 @@
             values: [],
             headers: 
                 [
-                    { text: "airobotId", value: "airobotId" },
+                    { text: "id", value: "id" },
                     { text: "airobotName", value: "airobotName" },
                     { text: "stock", value: "stock" },
                     { text: "useStatus", value: "useStatus" },
+                    { text: "airobotId", value: "airobotId" },
                 ],
             airobot : [],
             newValue: {},
@@ -87,10 +88,10 @@
             this.values = temp.data._embedded.airobots;
 
             this.newValue = {
-                'airobotId': 0,
                 'airobotName': '',
                 'stock': 0,
                 'useStatus': '',
+                'airobotId': 0,
             }
         },
         methods: {

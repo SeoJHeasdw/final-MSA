@@ -109,12 +109,12 @@
             me.values = temp.data._embedded.installs;
             
             me.newValue = {
-                'deliveryId': 0,
                 'qty': 0,
                 'deliveryStatus': '',
                 'address': '',
                 'orderId': 0,
                 'airobotId': 0,
+                'deliveryId': 0,
             }
         },
         methods:{

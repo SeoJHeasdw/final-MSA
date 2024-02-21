@@ -109,7 +109,6 @@
             me.values = temp.data._embedded.orders;
             
             me.newValue = {
-                'orderId': 0,
                 'qty': 0,
                 'airobotId': 0,
             }
