@@ -10,4 +10,8 @@ import lombok.*;
 public class UninstallStarted extends AbstractEvent {
 
     private Long id;
+    private Long airobotId;
+    private Integer qty;
+    private Integer stock;
+
 }

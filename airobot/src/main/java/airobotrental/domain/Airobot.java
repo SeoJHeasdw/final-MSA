@@ -43,121 +43,56 @@ public class Airobot {
 
     //<<< Clean Arch / Port Method
     public static void airobotDecrease(InstallStarted installStarted) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Airobot airobot = new Airobot();
-        repository().save(airobot);
-
-        */
-
-        /** Example 2:  finding and process
+        /** fill out following code  */
         
-        repository().findById(installStarted.get???()).ifPresent(airobot->{
-            
-            airobot // do something
+        repository().findById(Long.valueOf(installStarted.getAirobotId())).ifPresent(airobot->{
+            airobot.setStock(airobot.getStock() - installStarted.getQty());
             repository().save(airobot);
 
-
-         });
-        */
+        });
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void airobotIncrease(UninstallStarted uninstallStarted) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Airobot airobot = new Airobot();
-        repository().save(airobot);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(uninstallStarted.get???()).ifPresent(airobot->{
-            
-            airobot // do something
+        repository().findById(Long.valueOf(uninstallStarted.getAirobotId())).ifPresent(airobot->{
+            airobot.setStock(airobot.getStock() + uninstallStarted.getQty());
             repository().save(airobot);
 
-
-         });
-        */
+        });
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void useState(PaymentStarted paymentStarted) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Airobot airobot = new Airobot();
-        repository().save(airobot);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(paymentStarted.get???()).ifPresent(airobot->{
-            
-            airobot // do something
+        repository().findById(Long.valueOf(paymentStarted.getId())).ifPresent(airobot->{
+            airobot.setUseStatus("Y");
             repository().save(airobot);
 
-
-         });
-        */
-
+        });
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void useState(PaymentStopped paymentStopped) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Airobot airobot = new Airobot();
-        repository().save(airobot);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(paymentStopped.get???()).ifPresent(airobot->{
-            
-            airobot // do something
+        repository().findById(Long.valueOf(paymentStopped.getId())).ifPresent(airobot->{
+            airobot.setUseStatus("N");
             repository().save(airobot);
 
-
-         });
-        */
+        });
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void useState(PaymentPaused paymentPaused) {
-        //implement business logic here:
-
-        /** Example 1:  new item 
-        Airobot airobot = new Airobot();
-        repository().save(airobot);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(paymentPaused.get???()).ifPresent(airobot->{
-            
-            airobot // do something
+        repository().findById(Long.valueOf(paymentPaused.getId())).ifPresent(airobot->{
+            airobot.setUseStatus("N");
             repository().save(airobot);
 
-
-         });
-        */
-
+        });
     }
     //>>> Clean Arch / Port Method
 
