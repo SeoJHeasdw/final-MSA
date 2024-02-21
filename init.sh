@@ -7,16 +7,15 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "../awscliv2.zip"
-unzip ../awscliv2.zip -d ../
+unzip -o ../awscliv2.zip -d ../
 sudo .././aws/install
 
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install 14.19.0 && nvm use 14.19.0
-export NODE_OPTIONS=--openssl-legacy-provider
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
 
-cd infra
-docker-compose up
+# If you are using GCP, Uncomment # to install gcloud tool.
+# echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+# sudo apt-get update && sudo apt-get install google-cloud-cli
