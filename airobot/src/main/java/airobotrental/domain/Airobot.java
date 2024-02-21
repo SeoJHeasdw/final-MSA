@@ -17,13 +17,15 @@ public class Airobot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long airobotId;
+    private Long id;
 
     private String airobotName;
 
     private Integer stock;
 
     private String useStatus;
+
+    private Long airobotId;
 
     @PostPersist
     public void onPostPersist() {

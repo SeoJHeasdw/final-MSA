@@ -6,9 +6,6 @@
 
         <v-card-text>
             <div>
-                <Number label="PaymentId" v-model="item.paymentId" :editMode="editMode" @change="change" />
-            </div>
-            <div>
                 <Number label="OrderId" v-model="item.orderId" :editMode="editMode" @change="change" />
             </div>
             <div>
@@ -19,6 +16,9 @@
             </div>
             <div>
                 <String label="DelivertStatus" v-model="item.delivertStatus" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <Number label="AirobotId" v-model="item.airobotId" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

@@ -66,9 +66,9 @@
             values: [],
             headers: 
                 [
-                    { text: "orderId", value: "orderId" },
-                    { text: "airobotName", value: "airobotName" },
+                    { text: "id", value: "id" },
                     { text: "qty", value: "qty" },
+                    { text: "airobotId", value: "airobotId" },
                 ],
             order : [],
             newValue: {},
@@ -86,9 +86,8 @@
             this.values = temp.data._embedded.orders;
 
             this.newValue = {
-                'orderId': 0,
-                'airobotName': '',
                 'qty': 0,
+                'airobotId': 0,
             }
         },
         methods: {

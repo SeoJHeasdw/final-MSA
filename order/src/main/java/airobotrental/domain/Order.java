@@ -19,11 +19,11 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderId;
-
-    private String airobotName;
+    private Long id;
 
     private Integer qty;
+
+    private Long airobotId;
 
     @PostPersist
     public void onPostPersist() {

@@ -45,14 +45,16 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ PaymentId :  {{data.paymentId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ DeliveryId :  {{data.deliveryId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UseStatus :  {{data.useStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ DelivertStatus :  {{data.delivertStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ AirobotId :  {{data.airobotId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -120,11 +122,11 @@
             this.values = temp.data._embedded.payments;
             
             this.newValue = {
-                'paymentId': 0,
                 'orderId': 0,
                 'deliveryId': 0,
                 'useStatus': '',
                 'delivertStatus': '',
+                'airobotId': 0,
             }
         },
         methods: {

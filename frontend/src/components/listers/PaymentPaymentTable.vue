@@ -66,11 +66,12 @@
             values: [],
             headers: 
                 [
-                    { text: "paymentId", value: "paymentId" },
+                    { text: "id", value: "id" },
                     { text: "orderId", value: "orderId" },
                     { text: "deliveryId", value: "deliveryId" },
                     { text: "useStatus", value: "useStatus" },
                     { text: "delivertStatus", value: "delivertStatus" },
+                    { text: "airobotId", value: "airobotId" },
                 ],
             payment : [],
             newValue: {},
@@ -88,11 +89,11 @@
             this.values = temp.data._embedded.payments;
 
             this.newValue = {
-                'paymentId': 0,
                 'orderId': 0,
                 'deliveryId': 0,
                 'useStatus': '',
                 'delivertStatus': '',
+                'airobotId': 0,
             }
         },
         methods: {

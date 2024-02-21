@@ -19,9 +19,7 @@ public class Install {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long deliveryId;
-
-    private String airobotName;
+    private Long id;
 
     private Integer qty;
 
@@ -30,6 +28,10 @@ public class Install {
     private String address;
 
     private Long orderId;
+
+    private Long airobotId;
+
+    private Long deliveryId;
 
     @PostPersist
     public void onPostPersist() {

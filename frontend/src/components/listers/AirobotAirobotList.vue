@@ -44,13 +44,15 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ AirobotId :  {{data.airobotId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ AirobotName :  {{data.airobotName }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Stock :  {{data.stock }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ UseStatus :  {{data.useStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ AirobotId :  {{data.airobotId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -118,10 +120,10 @@
             this.values = temp.data._embedded.airobots;
             
             this.newValue = {
-                'airobotId': 0,
                 'airobotName': '',
                 'stock': 0,
                 'useStatus': '',
+                'airobotId': 0,
             }
         },
         methods: {

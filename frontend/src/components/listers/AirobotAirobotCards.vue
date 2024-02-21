@@ -109,10 +109,10 @@
             me.values = temp.data._embedded.airobots;
             
             me.newValue = {
-                'airobotId': 0,
                 'airobotName': '',
                 'stock': 0,
                 'useStatus': '',
+                'airobotId': 0,
             }
         },
         methods:{

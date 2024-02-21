@@ -18,7 +18,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long paymentId;
+    private Long id;
 
     private Long orderId;
 
@@ -27,6 +27,8 @@ public class Payment {
     private String useStatus;
 
     private String delivertStatus;
+
+    private Long airobotId;
 
     @PostPersist
     public void onPostPersist() {
