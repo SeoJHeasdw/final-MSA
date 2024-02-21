@@ -30,11 +30,6 @@ public class Order {
         OrderStarted orderStarted = new OrderStarted(this);
         orderStarted.publishAfterCommit();
 
-        OrderModifed orderModifed = new OrderModifed(this);
-        orderModifed.publishAfterCommit();
-
-        OrderPaused orderPaused = new OrderPaused(this);
-        orderPaused.publishAfterCommit();
     }
 
     @PreRemove
@@ -42,6 +37,18 @@ public class Order {
         OrderCancel orderCancel = new OrderCancel(this);
         orderCancel.publishAfterCommit();
     
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        OrderModifed orderModifed = new OrderModifed(this);
+        orderModifed.publishAfterCommit();
+    }
+
+    @PostUpdate
+    public void onPostUpdate() {
+        OrderPaused orderPaused = new OrderPaused(this);
+        orderPaused.publishAfterCommit();
     }
 
     public static OrderRepository repository() {
