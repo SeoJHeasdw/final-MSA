@@ -29,48 +29,59 @@ jobs:
       
       - name: Build Maven Projects
         run: |
-          mvn clean package -f ./reserve/pom.xml
-          mvn clean package -f ./바운디드컨텍스트 최소4개이상하기/pom.xml
-          mvn clean package -f ./BoundedContext445/pom.xml
-          mvn clean package -f ./BoundedContext861/pom.xml
+          mvn clean package -f ./order/pom.xml
+          mvn clean package -f ./install/pom.xml
+          mvn clean package -f ./payment/pom.xml
+          mvn clean package -f ./AIRobot/pom.xml
+          mvn clean package -f ./workerSystem/pom.xml
 
-      - name: Docker Build and push for Reserve
+      - name: Docker Build and push for Order
         uses: docker/build-push-action@v4
         with:
-          context: ./reserve
+          context: ./order
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/reserve:latest
-            ghcr.io/${{ github.repository }}/reserve:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/order:latest
+            ghcr.io/${{ github.repository }}/order:${{ github.ref_name }}
             
-      - name: Docker Build and push for 바운디드컨텍스트최소4개이상하기
+      - name: Docker Build and push for Install
         uses: docker/build-push-action@v4
         with:
-          context: ./바운디드컨텍스트 최소4개이상하기
+          context: ./install
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/바운디드컨텍스트-최소4개이상하기:latest
-            ghcr.io/${{ github.repository }}/바운디드컨텍스트-최소4개이상하기:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/install:latest
+            ghcr.io/${{ github.repository }}/install:${{ github.ref_name }}
             
-      - name: Docker Build and push for BoundedContext445
+      - name: Docker Build and push for Payment
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext445
+          context: ./payment
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext445:latest
-            ghcr.io/${{ github.repository }}/boundedcontext445:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/payment:latest
+            ghcr.io/${{ github.repository }}/payment:${{ github.ref_name }}
             
-      - name: Docker Build and push for BoundedContext861
+      - name: Docker Build and push for AiRobot
         uses: docker/build-push-action@v4
         with:
-          context: ./BoundedContext861
+          context: ./AIRobot
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/boundedcontext861:latest
-            ghcr.io/${{ github.repository }}/boundedcontext861:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/airobot:latest
+            ghcr.io/${{ github.repository }}/airobot:${{ github.ref_name }}
+            
+      - name: Docker Build and push for WorkerSystem
+        uses: docker/build-push-action@v4
+        with:
+          context: ./workerSystem
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/workersystem:latest
+            ghcr.io/${{ github.repository }}/workersystem:${{ github.ref_name }}
             

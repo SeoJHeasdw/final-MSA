@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reserve
+  name: order
   labels:
-    app: reserve
+    app: order
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reserve
+      app: order
   template:
     metadata:
       labels:
-        app: reserve
+        app: order
     spec:
       containers:
-        - name: reserve
-          image: username/reserve:latest
+        - name: order
+          image: username/order:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -43,22 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 바운디드컨텍스트 최소4개이상하기
+  name: install
   labels:
-    app: 바운디드컨텍스트 최소4개이상하기
+    app: install
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: 바운디드컨텍스트 최소4개이상하기
+      app: install
   template:
     metadata:
       labels:
-        app: 바운디드컨텍스트 최소4개이상하기
+        app: install
     spec:
       containers:
-        - name: 바운디드컨텍스트 최소4개이상하기
-          image: username/바운디드컨텍스트 최소4개이상하기:latest
+        - name: install
+          image: username/install:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -83,22 +83,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext445
+  name: payment
   labels:
-    app: BoundedContext445
+    app: payment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext445
+      app: payment
   template:
     metadata:
       labels:
-        app: BoundedContext445
+        app: payment
     spec:
       containers:
-        - name: BoundedContext445
-          image: username/BoundedContext445:latest
+        - name: payment
+          image: username/payment:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -123,22 +123,62 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BoundedContext861
+  name: AIRobot
   labels:
-    app: BoundedContext861
+    app: AIRobot
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: BoundedContext861
+      app: AIRobot
   template:
     metadata:
       labels:
-        app: BoundedContext861
+        app: AIRobot
     spec:
       containers:
-        - name: BoundedContext861
-          image: username/BoundedContext861:latest
+        - name: AIRobot
+          image: username/AIRobot:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workerSystem
+  labels:
+    app: workerSystem
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workerSystem
+  template:
+    metadata:
+      labels:
+        app: workerSystem
+    spec:
+      containers:
+        - name: workerSystem
+          image: username/workerSystem:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -165,15 +205,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: reserve
+  name: order
   labels:
-    app: reserve
+    app: order
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: reserve
+    app: order
 
 
 ---
@@ -182,15 +222,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: 바운디드컨텍스트 최소4개이상하기
+  name: install
   labels:
-    app: 바운디드컨텍스트 최소4개이상하기
+    app: install
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: 바운디드컨텍스트 최소4개이상하기
+    app: install
 
 
 ---
@@ -199,15 +239,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext445
+  name: payment
   labels:
-    app: BoundedContext445
+    app: payment
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext445
+    app: payment
 
 
 ---
@@ -216,13 +256,30 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: BoundedContext861
+  name: AIRobot
   labels:
-    app: BoundedContext861
+    app: AIRobot
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: BoundedContext861
+    app: AIRobot
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: workerSystem
+  labels:
+    app: workerSystem
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: workerSystem
 

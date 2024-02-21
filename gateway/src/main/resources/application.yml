@@ -9,20 +9,24 @@ spring:
     gateway:
 #<<< API Gateway / Routes
       routes:
-        - id: reserve
+        - id: order
           uri: http://localhost:8082
           predicates:
-            - Path=/cars/**, 
-        - id: 바운디드컨텍스트 최소4개이상하기
+            - Path=/orders/**, 
+        - id: install
           uri: http://localhost:8083
           predicates:
-            - Path=, 
-        - id: BoundedContext445
+            - Path=/installs/**, 
+        - id: payment
           uri: http://localhost:8084
           predicates:
             - Path=, 
-        - id: BoundedContext861
+        - id: AIRobot
           uri: http://localhost:8085
+          predicates:
+            - Path=, 
+        - id: workerSystem
+          uri: http://localhost:8086
           predicates:
             - Path=, 
         - id: frontend
@@ -49,20 +53,24 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: reserve
-          uri: http://reserve:8080
+        - id: order
+          uri: http://order:8080
           predicates:
-            - Path=/cars/**, 
-        - id: 바운디드컨텍스트 최소4개이상하기
-          uri: http://바운디드컨텍스트최소4개이상하기:8080
+            - Path=/orders/**, 
+        - id: install
+          uri: http://install:8080
+          predicates:
+            - Path=/installs/**, 
+        - id: payment
+          uri: http://payment:8080
           predicates:
             - Path=, 
-        - id: BoundedContext445
-          uri: http://boundedContext445:8080
+        - id: AIRobot
+          uri: http://aiRobot:8080
           predicates:
             - Path=, 
-        - id: BoundedContext861
-          uri: http://boundedContext861:8080
+        - id: workerSystem
+          uri: http://workerSystem:8080
           predicates:
             - Path=, 
         - id: frontend

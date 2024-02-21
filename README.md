@@ -20,10 +20,11 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- reserve
-- 바운디드컨텍스트 최소4개이상하기
-- BoundedContext445
-- BoundedContext861
+- order
+- install
+- payment
+- AIRobot
+- workerSystem
 
 
 ## Run API Gateway (Spring Gateway)
@@ -33,17 +34,21 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- reserve
+- order
 ```
- http :8088/cars id="id" 
+ http :8088/orders orderId="orderId" airobotName="airobotName" qty="qty" 
 ```
-- 바운디드컨텍스트 최소4개이상하기
+- install
+```
+ http :8088/installs deliveryId="deliveryId" airobotName="airobotName" qty="qty" deliveryStatus="deliveryStatus" address="address" orderId="orderId" 
+```
+- payment
 ```
 ```
-- BoundedContext445
+- AIRobot
 ```
 ```
-- BoundedContext861
+- workerSystem
 ```
 ```
 

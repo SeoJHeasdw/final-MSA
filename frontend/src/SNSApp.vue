@@ -36,13 +36,25 @@
                 <v-list>
                     <v-list-item
                         class="px-2"
-                        key="cars"
-                        to="/reserves/cars"
+                        key="orders"
+                        to="/orders/orders"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        Car
+                        Order
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="installs"
+                        to="/installs/installs"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Install
                     </v-list-item>
 
 
@@ -128,10 +140,17 @@ export default {
         ImageUrl: '',
         aggregate: [
             { 
-                title: 'Car', 
+                title: 'Order', 
                 description: '', 
-                key: 'cars', 
-                route: '/reserves/cars',
+                key: 'orders', 
+                route: '/orders/orders',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Install', 
+                description: '', 
+                key: 'installs', 
+                route: '/installs/installs',
                 ImageUrl: '',
             },
             
