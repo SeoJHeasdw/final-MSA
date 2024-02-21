@@ -36,17 +36,50 @@
                 <v-list>
                     <v-list-item
                         class="px-2"
-                        key="cars"
-                        to="/reserves/cars"
+                        key="orders"
+                        to="/orders/orders"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        Car
+                        Order
                     </v-list-item>
 
 
+                    <v-list-item
+                        class="px-2"
+                        key="installs"
+                        to="/installs/installs"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Install
+                    </v-list-item>
 
+
+                    <v-list-item
+                        class="px-2"
+                        key="payments"
+                        to="/payments/payments"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Payment
+                    </v-list-item>
+
+
+                    <v-list-item
+                        class="px-2"
+                        key="airobots"
+                        to="/airobots/airobots"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Airobot
+                    </v-list-item>
 
 
                 </v-list>
@@ -128,10 +161,31 @@ export default {
         ImageUrl: '',
         aggregate: [
             { 
-                title: 'Car', 
+                title: 'Order', 
                 description: '', 
-                key: 'cars', 
-                route: '/reserves/cars',
+                key: 'orders', 
+                route: '/orders/orders',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Install', 
+                description: '', 
+                key: 'installs', 
+                route: '/installs/installs',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Payment', 
+                description: '', 
+                key: 'payments', 
+                route: '/payments/payments',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Airobot', 
+                description: '', 
+                key: 'airobots', 
+                route: '/airobots/airobots',
                 ImageUrl: '',
             },
             

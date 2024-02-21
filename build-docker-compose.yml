@@ -23,7 +23,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
-  reserve:
+  order:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -34,10 +34,10 @@ services:
       - 8082:8082
     working_dir: /usr/src
     volumes:
-      - ./reserve:/usr/src
+      - ./order:/usr/src
       - ./maven-repo:/root/.m2
       
-  바운디드컨텍스트 최소4개이상하기:
+  install:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -48,10 +48,10 @@ services:
       - 8083:8083
     working_dir: /usr/src
     volumes:
-      - ./바운디드컨텍스트 최소4개이상하기:/usr/src
+      - ./install:/usr/src
       - ./maven-repo:/root/.m2
       
-  BoundedContext445:
+  payment:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -62,10 +62,10 @@ services:
       - 8084:8084
     working_dir: /usr/src
     volumes:
-      - ./BoundedContext445:/usr/src
+      - ./payment:/usr/src
       - ./maven-repo:/root/.m2
       
-  BoundedContext861:
+  airobot:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -76,6 +76,6 @@ services:
       - 8085:8085
     working_dir: /usr/src
     volumes:
-      - ./BoundedContext861:/usr/src
+      - ./airobot:/usr/src
       - ./maven-repo:/root/.m2
       
