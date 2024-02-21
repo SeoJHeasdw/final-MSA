@@ -20,15 +20,11 @@ spring:
         - id: payment
           uri: http://localhost:8084
           predicates:
-            - Path=, 
+            - Path=/payments/**, 
         - id: airobot
           uri: http://localhost:8085
           predicates:
-            - Path=, 
-        - id: workerSystem
-          uri: http://localhost:8086
-          predicates:
-            - Path=, 
+            - Path=/airobots/**, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -64,15 +60,11 @@ spring:
         - id: payment
           uri: http://payment:8080
           predicates:
-            - Path=, 
+            - Path=/payments/**, 
         - id: airobot
           uri: http://airobot:8080
           predicates:
-            - Path=, 
-        - id: workerSystem
-          uri: http://workerSystem:8080
-          predicates:
-            - Path=, 
+            - Path=/airobots/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

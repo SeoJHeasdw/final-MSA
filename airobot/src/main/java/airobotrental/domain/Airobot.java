@@ -1,6 +1,8 @@
 package airobotrental.domain;
 
 import airobotrental.AirobotApplication;
+import airobotrental.domain.AirobotDecreased;
+import airobotrental.domain.AirobotIncreased;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +24,15 @@ public class Airobot {
     private Integer stock;
 
     private String useStatus;
+
+    @PostPersist
+    public void onPostPersist() {
+        AirobotDecreased airobotDecreased = new AirobotDecreased(this);
+        airobotDecreased.publishAfterCommit();
+
+        AirobotIncreased airobotIncreased = new AirobotIncreased(this);
+        airobotIncreased.publishAfterCommit();
+    }
 
     public static AirobotRepository repository() {
         AirobotRepository airobotRepository = AirobotApplication.applicationContext.getBean(

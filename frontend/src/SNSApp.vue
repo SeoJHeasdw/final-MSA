@@ -58,7 +58,28 @@
                     </v-list-item>
 
 
+                    <v-list-item
+                        class="px-2"
+                        key="payments"
+                        to="/payments/payments"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Payment
+                    </v-list-item>
 
+
+                    <v-list-item
+                        class="px-2"
+                        key="airobots"
+                        to="/airobots/airobots"
+                        @click="changeUrl()"
+                        color="primary"
+                        style="font-weight:700;"
+                    >
+                        Airobot
+                    </v-list-item>
 
 
                 </v-list>
@@ -151,6 +172,20 @@ export default {
                 description: '', 
                 key: 'installs', 
                 route: '/installs/installs',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Payment', 
+                description: '', 
+                key: 'payments', 
+                route: '/payments/payments',
+                ImageUrl: '',
+            },
+            { 
+                title: 'Airobot', 
+                description: '', 
+                key: 'airobots', 
+                route: '/airobots/airobots',
                 ImageUrl: '',
             },
             

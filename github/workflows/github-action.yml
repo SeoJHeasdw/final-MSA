@@ -33,7 +33,6 @@ jobs:
           mvn clean package -f ./install/pom.xml
           mvn clean package -f ./payment/pom.xml
           mvn clean package -f ./airobot/pom.xml
-          mvn clean package -f ./workerSystem/pom.xml
 
       - name: Docker Build and push for Order
         uses: docker/build-push-action@v4
@@ -74,14 +73,4 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}/airobot:latest
             ghcr.io/${{ github.repository }}/airobot:${{ github.ref_name }}
-            
-      - name: Docker Build and push for WorkerSystem
-        uses: docker/build-push-action@v4
-        with:
-          context: ./workerSystem
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/workersystem:latest
-            ghcr.io/${{ github.repository }}/workersystem:${{ github.ref_name }}
             

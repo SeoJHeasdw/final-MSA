@@ -11,8 +11,11 @@ import OrderOrderDetail from "./components/listers/OrderOrderDetail"
 import InstallInstallManager from "./components/listers/InstallInstallCards"
 import InstallInstallDetail from "./components/listers/InstallInstallDetail"
 
+import PaymentPaymentManager from "./components/listers/PaymentPaymentCards"
+import PaymentPaymentDetail from "./components/listers/PaymentPaymentDetail"
 
-
+import AirobotAirobotManager from "./components/listers/AirobotAirobotCards"
+import AirobotAirobotDetail from "./components/listers/AirobotAirobotDetail"
 
 
 export default new Router({
@@ -41,8 +44,27 @@ export default new Router({
                 component: InstallInstallDetail
             },
 
+            {
+                path: '/payments/payments',
+                name: 'PaymentPaymentManager',
+                component: PaymentPaymentManager
+            },
+            {
+                path: '/payments/payments/:id',
+                name: 'PaymentPaymentDetail',
+                component: PaymentPaymentDetail
+            },
 
-
+            {
+                path: '/airobots/airobots',
+                name: 'AirobotAirobotManager',
+                component: AirobotAirobotManager
+            },
+            {
+                path: '/airobots/airobots/:id',
+                name: 'AirobotAirobotDetail',
+                component: AirobotAirobotDetail
+            },
 
 
 

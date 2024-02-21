@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PolicyHandler {
 
+    @Autowired
+    AirobotRepository airobotRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
 

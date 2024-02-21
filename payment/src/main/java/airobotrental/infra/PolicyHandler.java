@@ -17,7 +17,58 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PolicyHandler {
 
+    @Autowired
+    PaymentRepository paymentRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='OrderPaused'"
+    )
+    public void wheneverOrderPaused_PaymentPause(
+        @Payload OrderPaused orderPaused
+    ) {
+        OrderPaused event = orderPaused;
+        System.out.println(
+            "\n\n##### listener PaymentPause : " + orderPaused + "\n\n"
+        );
+
+        // Sample Logic //
+        Payment.paymentPause(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='InstallCompleted'"
+    )
+    public void wheneverInstallCompleted_PaymentStart(
+        @Payload InstallCompleted installCompleted
+    ) {
+        InstallCompleted event = installCompleted;
+        System.out.println(
+            "\n\n##### listener PaymentStart : " + installCompleted + "\n\n"
+        );
+
+        // Sample Logic //
+        Payment.paymentStart(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='UninstallCompleted'"
+    )
+    public void wheneverUninstallCompleted_PaymentStop(
+        @Payload UninstallCompleted uninstallCompleted
+    ) {
+        UninstallCompleted event = uninstallCompleted;
+        System.out.println(
+            "\n\n##### listener PaymentStop : " + uninstallCompleted + "\n\n"
+        );
+
+        // Sample Logic //
+        Payment.paymentStop(event);
+    }
 }
 //>>> Clean Arch / Inbound Adaptor

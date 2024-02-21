@@ -24,7 +24,6 @@ See the README.md files inside the each microservices directory:
 - install
 - payment
 - airobot
-- workerSystem
 
 
 ## Run API Gateway (Spring Gateway)
@@ -44,12 +43,11 @@ mvn spring-boot:run
 ```
 - payment
 ```
+ http :8088/payments paymentId="paymentId" orderId="orderId" deliveryId="deliveryId" useStatus="useStatus" delivertStatus="delivertStatus" 
 ```
 - airobot
 ```
-```
-- workerSystem
-```
+ http :8088/airobots airobotId="airobotId" airobotName="airobotName" stock="stock" useStatus="useStatus" 
 ```
 
 

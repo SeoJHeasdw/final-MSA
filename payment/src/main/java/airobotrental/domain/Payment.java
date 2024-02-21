@@ -1,6 +1,9 @@
 package airobotrental.domain;
 
 import airobotrental.PaymentApplication;
+import airobotrental.domain.PaymentPaused;
+import airobotrental.domain.PaymentStarted;
+import airobotrental.domain.PaymentStopped;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +27,18 @@ public class Payment {
     private String useStatus;
 
     private String delivertStatus;
+
+    @PostPersist
+    public void onPostPersist() {
+        PaymentPaused paymentPaused = new PaymentPaused(this);
+        paymentPaused.publishAfterCommit();
+
+        PaymentStarted paymentStarted = new PaymentStarted(this);
+        paymentStarted.publishAfterCommit();
+
+        PaymentStopped paymentStopped = new PaymentStopped(this);
+        paymentStopped.publishAfterCommit();
+    }
 
     public static PaymentRepository repository() {
         PaymentRepository paymentRepository = PaymentApplication.applicationContext.getBean(

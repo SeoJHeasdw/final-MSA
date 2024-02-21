@@ -79,17 +79,3 @@ services:
       - ./airobot:/usr/src
       - ./maven-repo:/root/.m2
       
-  workerSystem:
-    depends_on: 
-      - kafka
-    image: adoptopenjdk/maven-openjdk11:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    command: mvn spring-boot:run
-    ports:
-      - 8086:8086
-    working_dir: /usr/src
-    volumes:
-      - ./workerSystem:/usr/src
-      - ./maven-repo:/root/.m2
-      
