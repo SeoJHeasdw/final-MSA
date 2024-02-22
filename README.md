@@ -33,7 +33,7 @@ cd gateway
 mvn spring-boot:run
 ```
 
-## Test by API
+## Test Service
 - airobot(재고생성)
 ```
  (gateway)  http :8088/airobots airobotId=3 airobotName=CleaningRobot useStatus=N stock=1000
@@ -42,7 +42,7 @@ mvn spring-boot:run
 ```
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/71ebc6b6-6ed8-4217-89fc-8aa2ef3ffa3b)
 
-- order
+- order(주문)
 ```
  (gateway)  http :8088/orders airobotId=3 airobotName=CleaningRobot qty=3
  (order)    http :8082/orders airobotId=3 airobotName=CleaningRobot qty=3
