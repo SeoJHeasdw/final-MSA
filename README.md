@@ -76,6 +76,7 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 ## 운영
 나는 AWS를 이용하였고 이를 위해 
 먼저 aws configure 명령어를 통해 로그인 한다.
+
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6d1e5abd-1086-42db-a2c3-9a7e6a7d833f)
 
 ```
