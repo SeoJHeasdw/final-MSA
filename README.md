@@ -496,3 +496,30 @@ order-deploy.yaml 파일에 spec 하위에 해당 내용을 추가한다.
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1c6a277c-7c8b-4dd2-a5cc-df06397fd7f4)
 
+
+## 모니터링
+
+kubectl get service -n istio-system 할때 보였던 prometheus를 이용
+tracing과 kiali와 마찬가지로 prometheus의 ServiceType을 ClusterIP에서 LoadBalancer로 변경한다.
+
+```
+kubectl patch svc prometheus의 -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get service -n istio-system
+
+```
+
+
+### 만약 External-IP 개수 제약에 걸린다면 잠시 tracing과 kiali를 수정하자
+(안걸리면 안해도 됌)
+```
+kubectl patch svc kiali -n istio-system -p '{"spec": {"type": "ClusterIP"}}'
+kubectl patch svc tracing -n istio-system -p '{"spec": {"type": "ClusterIP"}}
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/eb0dd6a7-ef23-4892-8534-8192784613a4)
+
+오픈소스 모니터링 서비스(prometheus) 접속 
+acdf80ebb3a0640718007f9e1bb97dab-205573653.ca-central-1.elb.amazonaws.com:9090
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/ca7d0b31-3a51-49b6-a47e-35461382f4f4)
+
