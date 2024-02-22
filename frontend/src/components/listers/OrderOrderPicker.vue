@@ -20,6 +20,18 @@
                             <v-list-item-subtitle>
                                 AirobotId :  {{item.airobotId }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                AirobotName :  {{item.airobotName }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                UserId :  {{item.userId }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                DeliveryStatus :  {{item.deliveryStatus }}
+                            </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Address :  {{item.address }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -71,6 +83,14 @@
                 if(val != undefined) {
                     var arr = this.list[val]._links.self.href.split('/');
                     obj['id'] = arr[4]; 
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     

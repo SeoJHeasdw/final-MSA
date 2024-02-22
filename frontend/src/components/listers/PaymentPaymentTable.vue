@@ -72,6 +72,7 @@
                     { text: "useStatus", value: "useStatus" },
                     { text: "delivertStatus", value: "delivertStatus" },
                     { text: "airobotId", value: "airobotId" },
+                    { text: "pay", value: "pay" },
                 ],
             payment : [],
             newValue: {},
@@ -94,6 +95,7 @@
                 'useStatus': '',
                 'delivertStatus': '',
                 'airobotId': 0,
+                'pay': 0,
             }
         },
         methods: {

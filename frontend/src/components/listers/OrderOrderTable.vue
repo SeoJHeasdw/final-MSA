@@ -69,6 +69,10 @@
                     { text: "id", value: "id" },
                     { text: "qty", value: "qty" },
                     { text: "airobotId", value: "airobotId" },
+                    { text: "airobotName", value: "airobotName" },
+                    { text: "userId", value: "userId" },
+                    { text: "deliveryStatus", value: "deliveryStatus" },
+                    { text: "address", value: "address" },
                 ],
             order : [],
             newValue: {},
@@ -87,7 +91,11 @@
 
             this.newValue = {
                 'qty': 0,
-                'airobotId': 0,
+                'airobotId': '',
+                'airobotName': '',
+                'userId': '',
+                'deliveryStatus': false,
+                'address': '',
             }
         },
         methods: {

@@ -21,6 +21,7 @@
             <String label="UseStatus" v-model="value.useStatus" :editMode="editMode" :inputUI="''"/>
             <String label="DelivertStatus" v-model="value.delivertStatus" :editMode="editMode" :inputUI="''"/>
             <Number label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
+            <Number label="Pay" v-model="value.pay" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

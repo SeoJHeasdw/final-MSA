@@ -12,6 +12,12 @@ import lombok.*;
 public class InstallStarted extends AbstractEvent {
 
     private Long id;
+    private Integer qty;
+    private Boolean deliveryStatus;
+    private String address;
+    private String orderId;
+    private String airobotId;
+    private String deliveryId;
 
     public InstallStarted(Install aggregate) {
         super(aggregate);

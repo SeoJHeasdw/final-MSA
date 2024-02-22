@@ -9,7 +9,19 @@
                 <Number label="Qty" v-model="item.qty" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Number label="AirobotId" v-model="item.airobotId" :editMode="editMode" @change="change" />
+                <String label="AirobotId" v-model="item.airobotId" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="AirobotName" v-model="item.airobotName" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="UserId" v-model="item.userId" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <Boolean label="DeliveryStatus" v-model="item.deliveryStatus" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="Address" v-model="item.address" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

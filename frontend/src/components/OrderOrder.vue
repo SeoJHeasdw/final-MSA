@@ -17,7 +17,11 @@
 
         <v-card-text>
             <Number label="Qty" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
-            <Number label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
+            <String label="AirobotId" v-model="value.airobotId" :editMode="editMode" :inputUI="''"/>
+            <String label="AirobotName" v-model="value.airobotName" :editMode="editMode" :inputUI="''"/>
+            <String label="UserId" v-model="value.userId" :editMode="editMode" :inputUI="''"/>
+            <Boolean label="DeliveryStatus" v-model="value.deliveryStatus" :editMode="editMode" :inputUI="''"/>
+            <String label="Address" v-model="value.address" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>
@@ -37,13 +41,6 @@
                     @click="save"
                 >
                     Order
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
-                    Modify
                 </v-btn>
                 <v-btn
                     color="primary"

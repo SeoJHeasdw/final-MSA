@@ -30,6 +30,8 @@ public class Payment {
 
     private Long airobotId;
 
+    private Integer pay;
+
     @PostPersist
     public void onPostPersist() {
         PaymentPaused paymentPaused = new PaymentPaused(this);
@@ -50,7 +52,7 @@ public class Payment {
     }
 
     //<<< Clean Arch / Port Method
-    public static void paymentPause(OrderPaused orderPaused) {
+    public static void paymentPause(OrderPause orderPause) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -61,7 +63,7 @@ public class Payment {
 
         /** Example 2:  finding and process
         
-        repository().findById(orderPaused.get???()).ifPresent(payment->{
+        repository().findById(orderPause.get???()).ifPresent(payment->{
             
             payment // do something
             repository().save(payment);

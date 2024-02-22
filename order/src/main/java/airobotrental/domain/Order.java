@@ -2,8 +2,7 @@ package airobotrental.domain;
 
 import airobotrental.OrderApplication;
 import airobotrental.domain.OrderCancel;
-import airobotrental.domain.OrderModifed;
-import airobotrental.domain.OrderPaused;
+import airobotrental.domain.OrderPause;
 import airobotrental.domain.OrderStarted;
 import java.time.LocalDate;
 import java.util.Date;
@@ -23,21 +22,32 @@ public class Order {
 
     private Integer qty;
 
-    private Long airobotId;
+    private String airobotId;
+
+    private String airobotName;
+
+    private String userId;
+
+    private Boolean deliveryStatus;
+
+    private String address;
 
     @PostPersist
     public void onPostPersist() {
         OrderStarted orderStarted = new OrderStarted(this);
         orderStarted.publishAfterCommit();
+    }
 
-        OrderModifed orderModifed = new OrderModifed(this);
-        orderModifed.publishAfterCommit();
+    @PreUpdate
+    public void onPreUpdate() {
+        OrderPause orderPause = new OrderPause(this);
+        orderPause.publishAfterCommit();
+    }
 
+    @PreRemove
+    public void onPreRemove() {
         OrderCancel orderCancel = new OrderCancel(this);
         orderCancel.publishAfterCommit();
-
-        OrderPaused orderPaused = new OrderPaused(this);
-        orderPaused.publishAfterCommit();
     }
 
     public static OrderRepository repository() {

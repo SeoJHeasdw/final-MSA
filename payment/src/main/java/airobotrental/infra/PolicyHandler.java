@@ -25,14 +25,14 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='OrderPaused'"
+        condition = "headers['type']=='OrderPause'"
     )
-    public void wheneverOrderPaused_PaymentPause(
-        @Payload OrderPaused orderPaused
+    public void wheneverOrderPause_PaymentPause(
+        @Payload OrderPause orderPause
     ) {
-        OrderPaused event = orderPaused;
+        OrderPause event = orderPause;
         System.out.println(
-            "\n\n##### listener PaymentPause : " + orderPaused + "\n\n"
+            "\n\n##### listener PaymentPause : " + orderPause + "\n\n"
         );
 
         // Sample Logic //

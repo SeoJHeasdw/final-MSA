@@ -20,6 +20,9 @@
             <div>
                 <Number label="AirobotId" v-model="item.airobotId" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <Number label="Pay" v-model="item.pay" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

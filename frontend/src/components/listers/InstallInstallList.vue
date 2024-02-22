@@ -47,6 +47,7 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -57,6 +58,7 @@
                             [ OrderId :  {{data.orderId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ AirobotId :  {{data.airobotId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ DeliveryId :  {{data.deliveryId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ UserId :  {{data.userId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -125,11 +127,12 @@
             
             this.newValue = {
                 'qty': 0,
-                'deliveryStatus': '',
+                'deliveryStatus': false,
                 'address': '',
-                'orderId': 0,
-                'airobotId': 0,
-                'deliveryId': 0,
+                'orderId': '',
+                'airobotId': '',
+                'deliveryId': '',
+                'userId': '',
             }
         },
         methods: {

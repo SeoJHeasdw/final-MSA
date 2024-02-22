@@ -110,11 +110,12 @@
             
             me.newValue = {
                 'qty': 0,
-                'deliveryStatus': '',
+                'deliveryStatus': false,
                 'address': '',
-                'orderId': 0,
-                'airobotId': 0,
-                'deliveryId': 0,
+                'orderId': '',
+                'airobotId': '',
+                'deliveryId': '',
+                'userId': '',
             }
         },
         methods:{

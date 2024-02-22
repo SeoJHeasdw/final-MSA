@@ -114,6 +114,7 @@
                 'useStatus': '',
                 'delivertStatus': '',
                 'airobotId': 0,
+                'pay': 0,
             }
         },
         methods:{

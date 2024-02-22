@@ -23,15 +23,17 @@ public class Install {
 
     private Integer qty;
 
-    private String deliveryStatus;
+    private Boolean deliveryStatus;
 
     private String address;
 
-    private Long orderId;
+    private String orderId;
 
-    private Long airobotId;
+    private String airobotId;
 
-    private Long deliveryId;
+    private String deliveryId;
+
+    private String userId;
 
     @PostPersist
     public void onPostPersist() {
@@ -41,11 +43,11 @@ public class Install {
         UninstallStarted uninstallStarted = new UninstallStarted(this);
         uninstallStarted.publishAfterCommit();
 
-        InstallCompleted installCompleted = new InstallCompleted(this);
-        installCompleted.publishAfterCommit();
-
         UninstallCompleted uninstallCompleted = new UninstallCompleted(this);
         uninstallCompleted.publishAfterCommit();
+
+        InstallCompleted installCompleted = new InstallCompleted(this);
+        installCompleted.publishAfterCommit();
     }
 
     public static InstallRepository repository() {
