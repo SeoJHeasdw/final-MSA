@@ -41,13 +41,13 @@ mvn spring-boot:run
 ## Test by API
 - airobot(재고생성)
 ```
- http :8088/airobots id="id" airobotName="airobotName" stock="stock" useStatus="useStatus" airobotId="airobotId"
-http :8085/airobots airobotId=3 airobotName=CleaningRobot useStatus=Y stock=1000
+ (gateway)  http :8088/airobots airobotId="id" airobotName="airobotName" useStatus="useStatus" stock="stock"
+ (airobot)  http :8085/airobots airobotId=3 airobotName=CleaningRobot useStatus=Y stock=1000
 ```
-- order(주문)
+- order
 ```
- http :8088/orders id="id" qty="qty" airobotId="airobotId"
- http :8082/orders airobotId=3 airobotName=CleaningRobot qty=3
+ (gateway)  http :8088/orders id="id" qty="qty" airobotId="airobotId"
+ (order)    http :8082/orders airobotId=3 airobotName=CleaningRobot qty=3
 ```
 
 ## Run the frontend
