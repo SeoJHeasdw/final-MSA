@@ -1,4 +1,6 @@
-# 
+# AI로봇 렌탈사업
+
+임대형 AI로봇만을 취급하여 사용자의 주문, 주문취소, 일시정지에 대한 비즈니스 모델 구현
 
 ## 이벤트 스토밍 Model
 www.msaez.io/#/storming/final-MSA
