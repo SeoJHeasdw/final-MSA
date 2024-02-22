@@ -79,7 +79,8 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 2. IAM 서비스에서 사용자 액세스 키 만들기를 통해 Access key ID, Secret acess key 발급)
 
 이후 console창에서
-aws configure 명령어를 통해 로그인 한다.
+명령어 : aws configure 
+를 통해 로그인 한다.
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6d1e5abd-1086-42db-a2c3-9a7e6a7d833f)
 
@@ -89,14 +90,24 @@ Secret access key : 비공개
 region name 	  : 비공개
 output format     : json
 ```
+접속이 잘 되었는지 
+명령어 : aws iam list-account-aliases
+로 계정정보가 잘 나오는지 확인한다.
 
-그 후 클러스터 생성 명령어인 eksctl create cluster를 통해 클러스터를 만든다(--name은 내가 지정하여 생성)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/d81966d9-252b-4ab6-b3f8-40bbf28fcb36)
+
+그 후 클러스터 생성 명령어인 eksctl create cluster를 통해 클러스터를 만든다
+(--name 즉 ClusterId user10-eks 로 내가 지정하여 생성하였다.)
 
 eksctl create cluster --name user10-eks --version 1.27 --with-oidc --managed --node-type t3.medium --nodes 3 --nodes-min 1 eksctl create cluster
 --node-volume-type gp3 --nodes-max 3 --asg-access --full-ecr-access
 
-끝으로 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml 을 수행 후
-강사님이 제공해주신 쉘스크립트(csi-setup.sh) 를 통해 CSI 드라이브 작업을 진행하였다.
+클러스터 생성이 완료되면 클러스터 사용을 위한 설정을 다운로드한다.
+aws eks update-kubeconfig --name user10-eks
+
+명령어 : kubectl get nodes
+를 입력하여 3개의 노드가 보이면 클러스터 설정이 잘 적용되었다.
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/ba72d9bf-ee87-4cdd-a72e-120e399ff3bd)
 
 
 ## Required Utilities
