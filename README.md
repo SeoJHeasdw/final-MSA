@@ -18,6 +18,7 @@ cd infra
 docker-compose exec -it kafka /bin/bash
 cd /bin
 ./kafka-console-consumer --bootstrap-server localhost:9092 --topic
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic kafka.scaling --from-beginning
 ```
 
 ## 구현된 backend MSA Service
