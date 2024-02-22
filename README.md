@@ -116,12 +116,16 @@ docker에 접속한다
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/d4833dd9-1f7d-4ee5-8003-c7723a206e8e)
 
-git clone https://github.com/SeoJHeasdw/final-MSA
-
-
-
-
-
+그 후 각각의 service폴더에 들어가 
+명령어 : mvn package -B
+를 통해 Maven 프로젝트를 빌드하고 
+docker 이미지를 생성한다
+```
+docker build -t seojaeho/order/latest .
+docker build -t seojaeho/install/latest .
+docker build -t seojaeho/airobot/latest .
+docker build -t seojaeho/payment/latest .
+```
 
 
 
