@@ -448,6 +448,12 @@ kubectl get service -n istio-system
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/870c4d6e-5338-4a77-818f-05ed80e4b91a)
 
 분산추적 시스템(tracing) 접속
-a2ee57e3458cb473493682409f85cec9-1286056546.ca-central-1.elb.amazonaws.comL80
+a2ee57e3458cb473493682409f85cec9-1286056546.ca-central-1.elb.amazonaws.com:80
 
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/385dd950-7904-4dde-9b19-6a8b71d7d2c6)
+
+나는 namespace를 설정하지 않아 default로 설정해서 확인해본 모습이다.
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/fc32b9d2-d134-4ac9-86ac-17c62dda9370)
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6774b47b-304d-44a1-9a4c-65d323283b42)
 
