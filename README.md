@@ -439,10 +439,8 @@ order-deploy.yaml 파일에 livenessProbe 부분을 추가한다.
 
 ## 무정지 배포
 
-## Zerodowntime 폴더와 그안에 deployment.yaml파일을 만든다.
+order-deploy.yaml 파일에 readinessProbe 부분을 추가한다.
 
-![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/48739f06-31a0-4ff7-9044-423f73305147)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/db198049-496c-4520-acb4-ce15f8c43b41)
 
-
-
-
+시그마로 부하를 주면서 배포를 해보면 에러가뜨지않고 배포되는것을 확인할 수 있다.
