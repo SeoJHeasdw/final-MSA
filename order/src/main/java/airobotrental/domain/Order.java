@@ -39,12 +39,6 @@ public class Order {
     
     }
 
-    @PreUpdate
-    public void onPreUpdate() {
-        OrderModifed orderModifed = new OrderModifed(this);
-        orderModifed.publishAfterCommit();
-    }
-
     @PostUpdate
     public void onPostUpdate() {
         OrderPaused orderPaused = new OrderPaused(this);

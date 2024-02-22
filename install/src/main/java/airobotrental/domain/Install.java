@@ -55,14 +55,13 @@ public class Install {
         return installRepository;
     }
 
-    //<<< Clean Arch / Port Method
     public static void installBegins(OrderStarted orderStarted) {
         Long id = orderStarted.getId();
         int qty = orderStarted.getQty();
         String airobotId = orderStarted.getAirobotId();
         String airobotName = orderStarted.getAirobotName();
 
-        // ai로봇 서비스로 정보 전송
+        // ai로봇 서비스로 정보 전송(id,qty,airobotId,airobotName)
         InstallStarted installStarted = new InstallStarted();
         installStarted.setId(id);
         installStarted.setQty(qty);
@@ -73,14 +72,13 @@ public class Install {
 
     }
 
-    //>>> Clean Arch / Port Method
-    //<<< Clean Arch / Port Method
     public static void uninstallBegins(OrderCancel orderCancel) {
         Long id = orderCancel.getId();
         int qty = orderCancel.getQty();
         String airobotId = orderCancel.getAirobotId();
         String airobotName = orderCancel.getAirobotName();
 
+         // ai로봇 서비스로 정보 전송(id,qty,airobotId,airobotName)
         UninstallStarted uninstallStarted = new UninstallStarted();
         uninstallStarted.setId(id);
         uninstallStarted.setQty(qty);
