@@ -155,7 +155,7 @@ kubectl create deploy order --image=seojaeho/order:latest
 
 
 
-### Container 스토리지 관리
+## Container 스토리지 관리
 EBS CSI 설정
 
 사용자 환경 변수를 설정하고 진행한다.
@@ -208,9 +208,10 @@ metadata:
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
 EOF
-'''
+```
 
 기존 gp2기반 Storage Class를 default 해제
+
 ```
 kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 ```
