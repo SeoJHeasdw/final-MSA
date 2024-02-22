@@ -50,6 +50,13 @@ mvn spring-boot:run
 ```
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/8867061f-3899-470d-968e-712360d9484c)
 
+- gateway에서 확인
+```
+  (gateway) http :8088/airobots
+  (airobot) http :8085/airobots
+```
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/320ce006-f174-473a-ab57-0c2903dee691)
+
 ## Run the frontend
 ```
 cd frontend
