@@ -408,3 +408,7 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION TARGET_ARC
 
 ### istio가 설치된 모습
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/11592014-a591-4925-aeb6-d3a1af64366c)
+
+### istio Demo 설치
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6c202ee1-8551-4cea-89cb-15c6400f49b8)
+
