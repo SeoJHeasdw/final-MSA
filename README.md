@@ -8,7 +8,6 @@
 www.msaez.io/#/storming/final-MSA
 
 ## 서버 실행전 kafka 띄우기
-### Make sure there is a Kafka server running
 ```
 cd infra
 docker-compose up
