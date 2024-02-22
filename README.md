@@ -73,7 +73,7 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/8a149f6a-ec70-4ad7-88a8-57a120b9b4e2)
 
 
-# 서비스 운영
+# 클라우드 네이티브 운영
 나는 AWS를 이용하였고(보안이슈로 사진첨부X)
 1. AWS WEB Services에서 콘솔 로그인
 2. IAM 서비스에서 사용자 액세스 키 만들기를 통해 Access key ID, Secret acess key 발급)
@@ -143,21 +143,83 @@ docker push seojaeho/payment:latest
 
 
 
-## 내가 만든 서비스 띄우기
-kubectl create deploy order --image=seojaeho/order:v1
+### docker image deploy
+kubectl create deploy order --image=seojaeho/order:latest
+(버전정보 잘 확인할 것)
 
 띄운 서비스의 상태는 
 명령어 : kubectl get po
 통해 확인할 수 있다.
 
-NAME                     READY   STATUS    RESTARTS   AGE
-order-7d66c76dcd-j4nbq   1/1     Running   0          18s
-내가 만든 내 이미지 배포해 보기
-kubectl create deploy myhome --image=DockerHub-Id/welcome:v1
-kubectl expose deploy myhome --type=LoadBalancer --port=80
-웹브라우저에서 서비스 접속하기
-kubectl get service
-# 조회되는 EXTERNAL-IP 복사 후, 브라우저 주소창에 붙여넣기
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/c7514219-20c6-477e-9091-fdafe42e40b6)
+
+
+
+### Container 스토리지 관리
+EBS CSI 설정
+
+사용자 환경 변수를 설정하고 진행한다.
+export REGION=ca-central-1
+export CLUSTER_NAME=user10-eks
+export ROOT_ACCOUNT_UID=879772956301
+
+Kubernetes 서비스 계정과 IAM 역할 연결
+1.23 이상의 EKS Cluster가 설치되어 있어야 한다.
+Cluster가 AWS EBS CSI Driver를 사용하도록 IAM계정을 생성하고 IAM Policy를 Role과 함께 EKS에 설정한다.
+```
+eksctl create iamserviceaccount \
+  --override-existing-serviceaccounts \
+  --region $REGION \
+  --name ebs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster $CLUSTER_NAME \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve \
+  --role-only \
+  --role-name AmazonEKS_EBS_CSI_DriverRole_$CLUSTER_NAME
+```
+
+## EBS Storage 백업을 위한 Snapshot Components 생성
+### Customresourcedefinition 생성
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+```
+### Controller 생성
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/deploy/kubernetes/snapshot-controller/rbac-snapshot-controller.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/deploy/kubernetes/snapshot-controller/setup-snapshot-controller.yaml
+```
+### CSI-Driver add-on 설치
+```
+eksctl create addon --region $REGION --name aws-ebs-csi-driver --cluster $CLUSTER_NAME --service-account-role-arn arn:aws:iam::$ROOT_ACCOUNT_UID:role/AmazonEKS_EBS_CSI_DriverRole_$CLUSTER_NAME --force
+```
+EBS CSI Driver 기반 gp3 StorageClass 등록
+
+```
+kubectl apply -f - <<EOF
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+EOF
+'''
+
+기존 gp2기반 Storage Class를 default 해제
+```
+kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+
+Storage Class 확인
+명령어 : kubectl get storageclass
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
+
 
 
 
