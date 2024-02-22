@@ -357,64 +357,10 @@ EOF
 
 ### EBS 볼륨을 가지는 주문마이크로서비스 배포
 
-```
-kubectl apply -f - <<EOF
-apiVersion: "apps/v1"
-kind: "Deployment"
-metadata: 
-  name: order
-  labels: 
-    app: "order"
-spec: 
-  selector: 
-    matchLabels: 
-      app: "order"
-  replicas: 1
-  template: 
-    metadata: 
-      labels: 
-        app: "order"
-    spec: 
-      containers: 
-      - name: "order"
-        image: "ghcr.io/acmexii/order-liveness:latest"
-        ports: 
-          - containerPort: 80
-        volumeMounts:
-          - mountPath: "/mnt/data"
-            name: volume
-EOF       claimName: nbs-pvc
-kubectl apply -f - <<EOF
-apiVersion: "apps/v1"
-kind: "Deployment"
-metadata: 
-  name: order
-  labels: 
-    app: "order"
-spec: 
-  selector: 
-    matchLabels: 
-      app: "order"
-  replicas: 1
-  template: 
-    metadata: 
-      labels: 
-        app: "order"
-    spec: 
-      containers: 
-      - name: "order"
-        image: "ghcr.io/acmexii/order-liveness:latest"
-        ports: 
-          - containerPort: 80
-        volumeMounts:
-          - mountPath: "/mnt/data"
-            name: volume
-      volumes:
-      - name: volume
-        persistentVolumeClaim:
-          claimName: nbs-pvc  
-EOF
-```
+order-deploy.yaml 파일에 volumes 부분을 추가한다.
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/2101bed2-20d4-4010-9b2f-e061754442ef)
+
 
 ### 확인
 order에 접속하여 test.txt 파일을 만든다.
@@ -444,3 +390,18 @@ order-deploy.yaml 파일에 readinessProbe 부분을 추가한다.
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/db198049-496c-4520-acb4-ce15f8c43b41)
 
 시그마로 부하를 주면서 배포를 해보면 에러가뜨지않고 배포되는것을 확인할 수 있다.
+
+## Service Mesh
+서비스 메시(Service Mesh)는 분산 시스템에서 마이크로서비스 간 통신을 관리하고 보안, 모니터링, 트래픽 제어 등의 기능을 제공하는 인프라스트럭처 계층이며
+주요 목표는 개발자가 애플리케이션 코드에 집중할 수 있도록 하면서도, 마이크로서비스 간의 통신을 안전하고 효율적으로 관리하는 것
+
+나는 쿠버네티스의 기본 서비스 매시인 istio 를 설치하였다.
+랩을 활용하여 1.18.1ver을 이용하였다.
+
+```
+export ISTIO_VERSION=1.18.1
+curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION TARGET_ARCH=x86_64 sh -
+```
+
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/dc3ba31d-7668-44d0-8baa-4ed693379970)
