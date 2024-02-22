@@ -410,5 +410,21 @@ curl -L https://istio.io/downloadIstio | ISTIO_VERSION=$ISTIO_VERSION TARGET_ARC
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/11592014-a591-4925-aeb6-d3a1af64366c)
 
 ### istio Demo 설치
-![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6c202ee1-8551-4cea-89cb-15c6400f49b8)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/62f834ab-bb39-472b-a751-fbd18dfdcd40)
 
+### istio DashBoard 설치
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/e8b936e9-9a0e-4633-a29d-02c2cfc45407)
+
+### 정상 설치 후, ServiceType을 ClusterIP에서 LoadBalancer로 변경한다.
+
+```
+kubectl patch svc kiali -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get service -n istio-system
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/f9d57fd6-e7dc-44f9-8b87-4b5efe478641)
+
+분산 추적 시스템(관리자)로 접속
+a69167c468fb24432a54b8b1a5abc6d7-600541860.ca-central-1.elb.amazonaws.com:20001
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/56b10210-deb7-42cd-bc39-8732cc589877)
