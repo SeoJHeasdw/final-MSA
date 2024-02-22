@@ -90,6 +90,15 @@ region name 	  : 비공개
 output format     : json
 ```
 
+그 후 클러스터 생성 명령어인 eksctl create cluster를 통해 클러스터를 만든다(--name은 내가 지정하여 생성)
+
+eksctl create cluster --name user10-eks --version 1.27 --with-oidc --managed --node-type t3.medium --nodes 3 --nodes-min 1 eksctl create cluster
+--node-volume-type gp3 --nodes-max 3 --asg-access --full-ecr-access
+
+끝으로 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml 을 수행 후
+강사님이 제공해주신 쉘스크립트(csi-setup.sh) 를 통해 CSI 드라이브 작업을 진행하였다.
+
+
 ## Required Utilities
 
 - httpie (alternative for curl / POSTMAN) and network utils
