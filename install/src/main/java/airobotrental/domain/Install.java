@@ -35,17 +35,17 @@ public class Install {
 
     @PostPersist
     public void onPostPersist() {
-        InstallStarted installStarted = new InstallStarted(this);
-        installStarted.publishAfterCommit();
-
-        UninstallStarted uninstallStarted = new UninstallStarted(this);
-        uninstallStarted.publishAfterCommit();
-
-        InstallCompleted installCompleted = new InstallCompleted(this);
-        installCompleted.publishAfterCommit();
-
-        UninstallCompleted uninstallCompleted = new UninstallCompleted(this);
-        uninstallCompleted.publishAfterCommit();
+        // InstallStarted installStarted = new InstallStarted(this);
+        // installStarted.publishAfterCommit();
+    
+        // UninstallStarted uninstallStarted = new UninstallStarted(this);
+        // uninstallStarted.publishAfterCommit();
+    
+        // InstallCompleted installCompleted = new InstallCompleted(this);
+        // installCompleted.publishAfterCommit();
+    
+        // UninstallCompleted uninstallCompleted = new UninstallCompleted(this);
+        // uninstallCompleted.publishAfterCommit();
     }
 
     public static InstallRepository repository() {
@@ -57,48 +57,37 @@ public class Install {
 
     //<<< Clean Arch / Port Method
     public static void installBegins(OrderStarted orderStarted) {
-        //implement business logic here:
+        Long id = orderStarted.getId();
+        int qty = orderStarted.getQty();
+        String airobotId = orderStarted.getAirobotId();
+        String airobotName = orderStarted.getAirobotName();
 
-        /** Example 1:  new item 
-        Install install = new Install();
-        repository().save(install);
+        // ai로봇 서비스로 정보 전송
+        InstallStarted installStarted = new InstallStarted();
+        installStarted.setId(id);
+        installStarted.setQty(qty);
+        installStarted.setAirobotId(airobotId);
+        installStarted.setAirobotName(airobotName);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderStarted.get???()).ifPresent(install->{
-            
-            install // do something
-            repository().save(install);
-
-
-         });
-        */
+        installStarted.publishAfterCommit();
 
     }
 
     //>>> Clean Arch / Port Method
     //<<< Clean Arch / Port Method
     public static void uninstallBegins(OrderCancel orderCancel) {
-        //implement business logic here:
+        Long id = orderCancel.getId();
+        int qty = orderCancel.getQty();
+        String airobotId = orderCancel.getAirobotId();
+        String airobotName = orderCancel.getAirobotName();
 
-        /** Example 1:  new item 
-        Install install = new Install();
-        repository().save(install);
+        UninstallStarted uninstallStarted = new UninstallStarted();
+        uninstallStarted.setId(id);
+        uninstallStarted.setQty(qty);
+        uninstallStarted.setAirobotId(airobotId);
+        uninstallStarted.setAirobotName(airobotName);
 
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCancel.get???()).ifPresent(install->{
-            
-            install // do something
-            repository().save(install);
-
-
-         });
-        */
+        uninstallStarted.publishAfterCommit();
 
     }
     //>>> Clean Arch / Port Method

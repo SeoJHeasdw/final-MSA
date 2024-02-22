@@ -10,4 +10,7 @@ import lombok.*;
 public class OrderCancel extends AbstractEvent {
 
     private Long id;
+    private String airobotId;
+    private Integer qty;
+    private String airobotName;
 }

@@ -12,6 +12,9 @@ import lombok.*;
 public class UninstallStarted extends AbstractEvent {
 
     private Long id;
+    private String airobotId;
+    private Integer qty;
+    private String airobotName;
 
     public UninstallStarted(Install aggregate) {
         super(aggregate);

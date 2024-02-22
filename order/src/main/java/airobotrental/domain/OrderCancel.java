@@ -12,6 +12,9 @@ import lombok.*;
 public class OrderCancel extends AbstractEvent {
 
     private Long id;
+    private Long airobotId;
+    private Integer qty;
+    private Integer stock;
 
     public OrderCancel(Order aggregate) {
         super(aggregate);

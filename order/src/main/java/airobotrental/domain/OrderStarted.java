@@ -12,6 +12,9 @@ import lombok.*;
 public class OrderStarted extends AbstractEvent {
 
     private Long id;
+    private String airobotId;
+    private String airobotName;
+    private String qty;
 
     public OrderStarted(Order aggregate) {
         super(aggregate);

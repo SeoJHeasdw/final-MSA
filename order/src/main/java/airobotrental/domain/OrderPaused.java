@@ -12,6 +12,9 @@ import lombok.*;
 public class OrderPaused extends AbstractEvent {
 
     private Long id;
+    private Long airobotId;
+    private Integer qty;
+    private Integer stock;
 
     public OrderPaused(Order aggregate) {
         super(aggregate);
