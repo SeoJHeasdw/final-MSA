@@ -110,6 +110,22 @@ aws eks update-kubeconfig --name user10-eks
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/ba72d9bf-ee87-4cdd-a72e-120e399ff3bd)
 
 
+docker hug를 이용할 예정이기에 
+docker에 접속한다
+명령어 : docker login
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/d4833dd9-1f7d-4ee5-8003-c7723a206e8e)
+
+git clone https://github.com/SeoJHeasdw/final-MSA
+
+
+
+
+
+
+
+
+
 ## Required Utilities
 
 - httpie (alternative for curl / POSTMAN) and network utils
