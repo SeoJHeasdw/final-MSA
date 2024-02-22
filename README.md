@@ -159,12 +159,10 @@ kubectl create deploy order --image=seojaeho/order:latest
 
 ### 컨테이너 자동 확장
 
-단순하게는 
+단순하게는 scale 명령어를 통해서 늘릴 수 있지만(3개로 확장시킴)
 ```
 kubectl scale deploy order --replicas=3
 ```
-
-통해서 늘릴 수 있지만(3개로 확장시킴)
 
 자동 확장을 위한 명령으로는 scale이 아닌 autoscale로 
 cpu점유율, 최소값, 최대값 을 지정할 수 있고
@@ -222,7 +220,20 @@ spec:
 
 ### 기능테스트
 
+다른 서비스들과 동일한 기능이기에 order만 테스트를 수행한다.
+먼저 expose 명령어를 통해 pod를 외부로 노출시킨다
+```
+kubectl expose deploy order --port=80 --target-port=8080 --type=LoadBalancer
+kubectl get svc
+```
 
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/92cecf6c-c746-488d-96ea-609bfd8725d5)
+
+siega 를 통해 부하를 주면 order가 추가로 발생하는 것을 확인할 수 있다.
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/5de97bbf-ed08-4391-b18c-a663c637ff85)
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/a000d55e-68bf-4be0-a898-bdab55c099d6)
 
 
 ## Container 스토리지 관리
