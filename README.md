@@ -116,17 +116,48 @@ docker에 접속한다
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/d4833dd9-1f7d-4ee5-8003-c7723a206e8e)
 
-그 후 각각의 service폴더에 들어가 
-명령어 : mvn package -B
-를 통해 Maven 프로젝트를 빌드하고 
-docker 이미지를 생성한다
+## docker 이미지 생성
+각각의 service폴더에 들어가 
+Maven 프로젝트를 빌드하고 
+docker 이미지를 생성&푸쉬한다.
+
 ```
+mvn package -B
 docker build -t seojaeho/order/latest .
+docker push seojaeho/order:latest
+
+mvn package -B
 docker build -t seojaeho/install/latest .
+docker push seojaeho/install:latest
+
+mvn package -B
 docker build -t seojaeho/airobot/latest .
+docker push seojaeho/airobot:latest
+
+mvn package -B
 docker build -t seojaeho/payment/latest .
+docker push seojaeho/payment:latest
 ```
 
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/4d35ae75-f256-4a50-a230-4c3e066139f5)
+
+
+
+## 내가 만든 서비스 띄우기
+kubectl create deploy order --image=seojaeho/order:v1
+
+띄운 서비스의 상태는 
+명령어 : kubectl get po
+통해 확인할 수 있다.
+
+NAME                     READY   STATUS    RESTARTS   AGE
+order-7d66c76dcd-j4nbq   1/1     Running   0          18s
+내가 만든 내 이미지 배포해 보기
+kubectl create deploy myhome --image=DockerHub-Id/welcome:v1
+kubectl expose deploy myhome --type=LoadBalancer --port=80
+웹브라우저에서 서비스 접속하기
+kubectl get service
+# 조회되는 EXTERNAL-IP 복사 후, 브라우저 주소창에 붙여넣기
 
 
 
