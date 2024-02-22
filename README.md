@@ -426,4 +426,14 @@ order를 scale 명령어로 2개로 로드밸런싱한 후 접속 해보면 해�
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1d176ddf-4468-469b-83cb-5ae9b7f61184)
 
 
+## 셀프 힐링 & 무정지 배포
+
+order-deploy.yaml 파일에 livenessProbe 부분을 추가한다.
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/0769e3e4-fe95-4da6-b5ec-72f50fb914b8)
+
+강제로 down을 주고 셀프 힐링이 되는지 확인한다. 
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/f3edbed7-2a40-492f-908e-5ec0dd365fae)
+
 
