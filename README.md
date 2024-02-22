@@ -7,7 +7,7 @@
 ## 이벤트 스토밍 Model
 www.msaez.io/#/storming/final-MSA
 
-## Before Running Services
+## 서버 실행전 kafka 띄우기
 ### Make sure there is a Kafka server running
 ```
 cd infra
@@ -21,8 +21,7 @@ cd /bin
 ./kafka-console-consumer --bootstrap-server localhost:9092 --topic
 ```
 
-## Run the backend micro-services
-See the README.md files inside the each microservices directory:
+## 구현된 backend MSA Service
 
 - order
 - install
