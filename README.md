@@ -416,10 +416,13 @@ spec:
 EOF
 ```
 
+### 확인
 order에 접속하여 test.txt 파일을 만든다.
+
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/a63e0610-e8e1-4c48-91f1-0a38f3af44ad)
 
-order를 scale 명령어로 2개로 로드밸런싱한 후 접속 해보면 해당 파일이 있는것을 확인할 수 있다
+order를 scale 명령어로 2개로 로드밸런싱한 후 접속 해보면 해당 파일이 있는것을 확인할 수 있다.
+
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1d176ddf-4468-469b-83cb-5ae9b7f61184)
 
 
