@@ -156,6 +156,75 @@ kubectl create deploy order --image=seojaeho/order:latest
 
 
 
+
+### 컨테이너 자동 확장
+
+단순하게는 
+```
+kubectl scale deploy order --replicas=3
+```
+
+통해서 늘릴 수 있지만(3개로 확장시킴)
+
+자동 확장을 위한 명령으로는 scale이 아닌 autoscale로 
+cpu점유율, 최소값, 최대값 을 지정할 수 있고
+
+```
+kubectl autoscale deployment order --cpu-percent=50 --min=1 --max=3
+```
+
+yaml 파일을 만들어 관리할수도 있다
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+  labels:
+    app: order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+        - name: order
+          image: jinyoung/monolith-order:v20210602
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "200m"            
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/64a05667-1431-4b45-b5f0-65c3fea14762)
+
+### 기능테스트
+
+
+
+
 ## Container 스토리지 관리
 EBS CSI 설정
 
@@ -221,6 +290,8 @@ Storage Class 확인
 명령어 : kubectl get storageclass
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
+
+
 
 
 
