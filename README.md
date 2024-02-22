@@ -24,10 +24,13 @@ cd /bin
 ## 구현된 backend MSA Service
 
 - order
+주문담당하는 팀으로 고객의 주문, 주문취소, 일시정지를 관리하며 다른 팀에게 주문의 형태를 연동한다.
 - install
+배송을 진행하는 현장작업자어플(외부시스템)과의 연동을 하며 설치&회수 완료 시 해당 상태를 payment팀과 airobot팀에게 연동한다.
 - payment
+금액을 담당하는 팀으로 주문상태에 따라 금액을 부과하거나 취소한다.
 - airobot
-
+로봇을 관리하는 팀으로 로봇의 사용상태, 재고 등을 관리한다.
 
 ## Run API Gateway (Spring Gateway)
 ```
@@ -36,23 +39,16 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- order
+- airobot(재고생성)
 ```
- http :8088/orders id="id" qty="qty" airobotId="airobotId" 
+ http :8088/airobots id="id" airobotName="airobotName" stock="stock" useStatus="useStatus" airobotId="airobotId"
+http :8085/airobots airobotId=3 airobotName=CleaningRobot useStatus=Y stock=1000
 ```
-- install
+- order(주문)
 ```
- http :8088/installs id="id" qty="qty" deliveryStatus="deliveryStatus" address="address" orderId="orderId" airobotId="airobotId" deliveryId="deliveryId" 
+ http :8088/orders id="id" qty="qty" airobotId="airobotId"
+ http :8082/orders airobotId=3 airobotName=CleaningRobot qty=3
 ```
-- payment
-```
- http :8088/payments id="id" orderId="orderId" deliveryId="deliveryId" useStatus="useStatus" delivertStatus="delivertStatus" airobotId="airobotId" 
-```
-- airobot
-```
- http :8088/airobots id="id" airobotName="airobotName" stock="stock" useStatus="useStatus" airobotId="airobotId" 
-```
-
 
 ## Run the frontend
 ```
