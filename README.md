@@ -57,7 +57,7 @@ mvn spring-boot:run
 ```
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/320ce006-f174-473a-ab57-0c2903dee691)
 
-## 보상처리
+## 트랜잭션 처리과정
 order -> install -> airobot 으로 전달되는 형태이기에
 order가 발행되면 install을 거쳐 airobot으로 전달한다.
 
