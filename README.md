@@ -12,7 +12,7 @@ www.msaez.io/#/storming/final-MSA
 cd infra
 docker-compose up
 ```
-- Check the Kafka messages:
+- kafka 이벤트 발생 확인 방법
 ```
 cd infra
 docker-compose exec -it kafka /bin/bash
