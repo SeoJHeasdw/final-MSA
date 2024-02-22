@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: order
-          image: jinyoung/monolith-order:v20210602
+          image: seojaeho/order:lastst
           ports:
             - containerPort: 8080
           resources:
             requests:
               cpu: "200m"            
-          readinessProbe:
+          readinessProbe: #셀프 힐링
             httpGet:
               path: '/actuator/health'
               port: 8080
@@ -30,7 +30,7 @@ spec:
             timeoutSeconds: 2
             periodSeconds: 5
             failureThreshold: 10
-          livenessProbe:
+          livenessProbe: #무정지 배포
             httpGet:
               path: '/actuator/health'
               port: 8080
@@ -38,3 +38,7 @@ spec:
             timeoutSeconds: 2
             periodSeconds: 5
             failureThreshold: 5
+      volumes:  # 볼륨 추가
+        - name: ebs-volume
+          persistentVolumeClaim:
+            claimName: ebs-pvc
