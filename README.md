@@ -462,20 +462,37 @@ a2ee57e3458cb473493682409f85cec9-1286056546.ca-central-1.elb.amazonaws.com:80
 order-deploy.yaml 파일에 spec 하위에 해당 내용을 추가한다.
 
 ```
- hosts:
-      - order
-      http:
-        - route:
-          - destination:
-              host: order
-          timeout: 3s
-          retries:
-            attempts: 3
-            perTryTimeout: 2s
-            retryOn: 5xx,retriable-4xx,gateway-error,connect-failure,refused-stream
+  host: order
+  http:
+    - route:
+      - destination:
+          host: order
+      timeout: 3s
+      retries:
+        attempts: 3
+        perTryTimeout: 2s
+        retryOn: 5xx,retriable-4xx,gateway-error,connect-failure,refused-stream
 ```
 
-![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1eab018f-aa3a-476e-921b-585b43d2e2ed)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/efeffa63-47b9-4234-a5fe-f43562ed87b5)
 
 
+### 서킷 브레이크 기능 추가 (장애가 전파되는걸 방지하는 기능)
+
+order-deploy.yaml 파일에 spec 하위에 해당 내용을 추가한다.
+
+```
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+      localityLbSetting:
+        enabled: false
+    outlierDetection:
+      interval: 10s
+      consecutive5xxErrors: 1
+      baseEjectionTime: 3m
+      maxEjectionPercent: 100   
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1c6a277c-7c8b-4dd2-a5cc-df06397fd7f4)
 
