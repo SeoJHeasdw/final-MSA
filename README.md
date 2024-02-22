@@ -1,6 +1,6 @@
 # 
 
-## Model
+## 이벤트 스토밍 Model
 www.msaez.io/#/storming/final-MSA
 
 ## Before Running Services
