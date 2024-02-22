@@ -305,12 +305,122 @@ Storage Class 확인
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
 
+### PVC생성
+
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nbs-pvc
+  labels:
+    app: test-pvc
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+  storageClassName: ebs-sc
+EOF
+```
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1e651399-320d-409b-a403-3f0cb068e436)
+
+### 쉐어볼룸 만들기
+
+```
+kubectl apply -f -<<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-volumes
+spec:
+  containers:
+  - image: redis
+    name: redis
+    volumeMounts:
+    - name: shared-storage
+      mountPath: /data/shared
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: shared-storage
+      mountPath: /data/shared
+  volumes:
+  - name: shared-storage
+    emptyDir: {}
+EOF
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/0233c1d5-1eff-4bd0-89fd-7d0b78f874bc)
 
 
+### EBS 볼륨을 가지는 주문마이크로서비스 배포
 
+```
+kubectl apply -f - <<EOF
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: order
+  labels: 
+    app: "order"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "order"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "order"
+    spec: 
+      containers: 
+      - name: "order"
+        image: "ghcr.io/acmexii/order-liveness:latest"
+        ports: 
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: "/mnt/data"
+            name: volume
+EOF       claimName: nbs-pvc
+kubectl apply -f - <<EOF
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata: 
+  name: order
+  labels: 
+    app: "order"
+spec: 
+  selector: 
+    matchLabels: 
+      app: "order"
+  replicas: 1
+  template: 
+    metadata: 
+      labels: 
+        app: "order"
+    spec: 
+      containers: 
+      - name: "order"
+        image: "ghcr.io/acmexii/order-liveness:latest"
+        ports: 
+          - containerPort: 80
+        volumeMounts:
+          - mountPath: "/mnt/data"
+            name: volume
+      volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: nbs-pvc  
+EOF
+```
 
+order에 접속하여 test.txt 파일을 만든다.
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/a63e0610-e8e1-4c48-91f1-0a38f3af44ad)
 
-
+order를 scale 명령어로 2개로 로드밸런싱한 후 접속 해보면 해당 파일이 있는것을 확인할 수 있다
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1d176ddf-4468-469b-83cb-5ae9b7f61184)
 
 
 
