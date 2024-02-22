@@ -1,6 +1,7 @@
 # AI로봇 렌탈사업
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/75ed751e-69ff-4b7c-a987-04c96bfe41f5)
+
 임대형 AI로봇만을 취급하여 사용자의 주문, 주문취소, 일시정지에 대한 비즈니스 모델 구현
 
 ## 이벤트 스토밍 Model
