@@ -144,9 +144,10 @@ docker push seojaeho/payment:latest
 
 
 ### docker image deploy
+```
 kubectl create deploy order --image=seojaeho/order:latest
 (버전정보 잘 확인할 것)
-
+```
 띄운 서비스의 상태는 
 명령어 : kubectl get po
 통해 확인할 수 있다.
