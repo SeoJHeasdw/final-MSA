@@ -535,10 +535,10 @@ kubectl get service -n istio-system
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/dab0a713-2772-49ee-920f-b7c4978da9e9)
 
-모니터링 서비스(grafana) 접속
+오픈소스 모니터링 서비스(grafana) 접속
 ab578c91a71c4464b9f37908292dc3fc-822424932.ca-central-1.elb.amazonaws.com:3000
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/244c5606-9e62-49b7-94a3-0befba623e72)
 
 
-
+!! 프로메테우스는 상태 데이터를 수집하고, 그라파나는 프로메테우스로 수집한 데이터를 관리자가 보기 좋게 시각화
