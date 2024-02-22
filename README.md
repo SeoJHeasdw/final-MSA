@@ -457,3 +457,25 @@ a2ee57e3458cb473493682409f85cec9-1286056546.ca-central-1.elb.amazonaws.com:80
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6774b47b-304d-44a1-9a4c-65d323283b42)
 
+### Retry 추가해보기
+
+order-deploy.yaml 파일에 spec 하위에 해당 내용을 추가한다.
+
+```
+ hosts:
+      - order
+      http:
+        - route:
+          - destination:
+              host: order
+          timeout: 3s
+          retries:
+            attempts: 3
+            perTryTimeout: 2s
+            retryOn: 5xx,retriable-4xx,gateway-error,connect-failure,refused-stream
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/1eab018f-aa3a-476e-921b-585b43d2e2ed)
+
+
+
