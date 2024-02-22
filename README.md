@@ -457,7 +457,7 @@ a2ee57e3458cb473493682409f85cec9-1286056546.ca-central-1.elb.amazonaws.com:80
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6774b47b-304d-44a1-9a4c-65d323283b42)
 
-### Retry 추가해보기
+### 변수(자연재해 등)로 인한 통신이 실패했을 때를 대비한 Retry 추가
 
 order-deploy.yaml 파일에 spec 하위에 해당 내용을 추가한다.
 
