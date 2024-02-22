@@ -6,7 +6,7 @@ www.msaez.io/#/storming/final-MSA
 ## Before Running Services
 ### Make sure there is a Kafka server running
 ```
-cd kafka
+cd infra
 docker-compose up
 ```
 - Check the Kafka messages:
