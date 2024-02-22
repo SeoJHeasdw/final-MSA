@@ -73,8 +73,17 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/8a149f6a-ec70-4ad7-88a8-57a120b9b4e2)
 
 
-## Test by UI
-Open a browser to localhost:8088
+## 운영
+나는 AWS를 이용하였고 이를 위해 
+먼저 aws configure 명령어를 통해 로그인 한다.
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6d1e5abd-1086-42db-a2c3-9a7e6a7d833f)
+
+```
+Access key ID 	  : 비공개
+Secret access key : 비공개
+region name 	  : 비공개
+output format     : json
+```
 
 ## Required Utilities
 
