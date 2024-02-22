@@ -73,7 +73,7 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/8a149f6a-ec70-4ad7-88a8-57a120b9b4e2)
 
 
-## 운영
+# 서비스 운영
 나는 AWS를 이용하였고(보안이슈로 사진첨부X)
 1. AWS WEB Services에서 콘솔 로그인
 2. IAM 서비스에서 사용자 액세스 키 만들기를 통해 Access key ID, Secret acess key 발급)
