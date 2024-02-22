@@ -39,11 +39,15 @@ mvn spring-boot:run
 ```
  (gateway)  http :8088/airobots airobotId="id" airobotName="airobotName" useStatus="useStatus" stock="stock"
  (airobot)  http :8085/airobots airobotId=3 airobotName=CleaningRobot useStatus=Y stock=1000
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/71ebc6b6-6ed8-4217-89fc-8aa2ef3ffa3b)
+
 ```
 - order
 ```
  (gateway)  http :8088/orders id="id" qty="qty" airobotId="airobotId"
  (order)    http :8082/orders airobotId=3 airobotName=CleaningRobot qty=3
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/8867061f-3899-470d-968e-712360d9484c)
+
 ```
 
 ## Run the frontend
