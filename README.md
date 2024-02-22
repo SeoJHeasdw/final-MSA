@@ -503,7 +503,7 @@ kubectl get service -n istio-system 할때 보였던 prometheus를 이용
 tracing과 kiali와 마찬가지로 prometheus의 ServiceType을 ClusterIP에서 LoadBalancer로 변경한다.
 
 ```
-kubectl patch svc prometheus의 -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl patch svc prometheus -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
 kubectl get service -n istio-system
 
 ```
@@ -522,4 +522,23 @@ kubectl patch svc tracing -n istio-system -p '{"spec": {"type": "ClusterIP"}}
 acdf80ebb3a0640718007f9e1bb97dab-205573653.ca-central-1.elb.amazonaws.com:9090
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/ca7d0b31-3a51-49b6-a47e-35461382f4f4)
+
+
+해당 GUI에서 그라파나와 연동할 수 있다.
+grafana의 ServiceType을 ClusterIP에서 LoadBalancer로 변경한다.
+
+```
+kubectl patch svc grafana -n istio-system -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl get service -n istio-system
+
+```
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/dab0a713-2772-49ee-920f-b7c4978da9e9)
+
+모니터링 서비스(grafana) 접속
+ab578c91a71c4464b9f37908292dc3fc-822424932.ca-central-1.elb.amazonaws.com:3000
+
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/244c5606-9e62-49b7-94a3-0befba623e72)
+
+
 
