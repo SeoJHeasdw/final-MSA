@@ -74,8 +74,12 @@ order가 발행되면 install을 거쳐 airobot으로 전달한다.
 
 
 ## 운영
-나는 AWS를 이용하였고 이를 위해 
-먼저 aws configure 명령어를 통해 로그인 한다.
+나는 AWS를 이용하였고(보안이슈로 사진첨부X)
+1. AWS WEB Services에서 콘솔 로그인
+2. IAM 서비스에서 사용자 액세스 키 만들기를 통해 Access key ID, Secret acess key 발급)
+
+이후 console창에서
+aws configure 명령어를 통해 로그인 한다.
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/6d1e5abd-1086-42db-a2c3-9a7e6a7d833f)
 
