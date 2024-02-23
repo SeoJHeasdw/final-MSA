@@ -316,6 +316,40 @@ Storage Class 확인
 
 ## EFS 설정
 ### 아마존웹서비스에서 EFS 검색 후 파일시스템 생성, ID를 저장해둔다.
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/0df5d044-5c45-464b-9907-f0c817c1d1dc)
+
+정책 설정
+```
+# Download the IAM policy document (Cloud Administrator Only)
+curl -S https://raw.githubusercontent.com/kubernetes-sigs/aws-efs-csi-driver/master/docs/iam-policy-example.json -o iam-policy.json
+
+# Create an IAM policy (Cloud Administrator Only)
+aws iam create-policy \
+  --policy-name EFSCSIControllerIAMPolicy \
+  --policy-document file://iam-policy.json 
+```
+
+
+쿠버네티스 서비스 계정과 IAM역할 연결
+
+```
+ksctl create iamserviceaccount \
+  --override-existing-serviceaccounts \
+  --region $REGION \
+  --name efs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster $CLUSTER_NAME \
+  --attach-policy-arn arn:aws:iam::$AWS_ROOT_UID:policy/EFSCSIControllerIAMPolicy \
+  --approve 
+```
+
+
+## EFS CSI 드라이버 설치
+helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
+  --namespace kube-system \
+  --set image.repository=602401143452.dkr.ecr.ca-central-1.amazonaws.com/eks/aws-efs-csi-driver \
+  --set controller.serviceAccount.create=false \
+  --set controller.serviceAccount.name=efs-csi-controller-sa
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
 
