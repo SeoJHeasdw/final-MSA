@@ -43,23 +43,3 @@ spec:
         - name: ebs-volume
           persistentVolumeClaim:
             claimName: ebs-pvc
-  host: order
-  http:
-    - route:
-      - destination:
-          host: order
-      timeout: 3s
-      retries:
-        attempts: 3
-        perTryTimeout: 2s
-        retryOn: 5xx,retriable-4xx,gateway-error,connect-failure,refused-stream
-  trafficPolicy:
-    loadBalancer:
-      simple: ROUND_ROBIN
-      localityLbSetting:
-        enabled: false
-    outlierDetection:
-      interval: 10s
-      consecutive5xxErrors: 1
-      baseEjectionTime: 3m
-      maxEjectionPercent: 100   

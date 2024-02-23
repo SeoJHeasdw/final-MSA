@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: jinyoung/monolith-order:v20210602
+          image: seojaeho/order:latest
           ports:
             - containerPort: 8080
           resources:
