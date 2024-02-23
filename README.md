@@ -491,32 +491,16 @@ yml 파일을 만들고 kubectl apply -f 한다
 (각 서비스 별로 (해당건은 order만)
 ```
 apiVersion: networking.istio.io/v1alpha3
-kind: VirtualService
-metadata:
-  name: order
-spec:
-  hosts:
-  - order
-  http:
-  - route:
-    - destination:
-        host: order
-    weight: 100
----
-apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: order
 spec:
   host: order
   trafficPolicy:
-    loadBalancer:
-      simple: ROUND_ROBIN
-    outlierDetection:
-      interval: 10s
-      consecutive5xxErrors: 1
-      baseEjectionTime: 3m
-      maxEjectionPercent: 100
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
+      retryOn: 5xx,gateway-error,connect-failure
 ```
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/efeffa63-47b9-4234-a5fe-f43562ed87b5)
