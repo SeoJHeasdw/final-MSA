@@ -17,7 +17,8 @@ www.msaez.io/#/storming/final-MSA
 6. 설치가 완료되면 월정기요금이 발생하며 로봇팀에게 설치가 완료되어 로봇이 사용상태가 되었다고 알리고, 사용자에게 월 정기요금이 발생하기 시작했다고 알림을 보낸다.
 
 ## FLOW
-![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/bc96c0f9-3969-47a5-8ef9-b6b181f4d654)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/ce713126-ef58-47f7-9feb-94ab05e8aa9d)
+
 
 
 ### 서버 실행전 kafka 띄우기
