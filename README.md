@@ -187,46 +187,19 @@ kubectl autoscale deployment order --cpu-percent=50 --min=1 --max=3
 yaml 파일을 만들어 관리할수도 있다
 
 ```
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
 metadata:
-  name: order
-  labels:
-    app: order
+  name: order-autoscaler
+  # namespace: airobotrental   # 만약 네임스페이스를 명시했다면 여기에 추가
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: order
-  template:
-    metadata:
-      labels:
-        app: order
-    spec:
-      containers:
-        - name: order
-          image: jinyoung/monolith-order:v20210602
-          ports:
-            - containerPort: 8080
-          resources:
-            requests:
-              cpu: "200m"            
-          readinessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
-          livenessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: order   # autoscaling을 적용할 배포의 이름
+  minReplicas: 1   # 최소 파드 수
+  maxReplicas: 10  # 최대 파드 수
+  targetCPUUtilizationPercentage: 50  # 대상 CPU 사용률(0-100%)
 ```
 
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/64a05667-1431-4b45-b5f0-65c3fea14762)
