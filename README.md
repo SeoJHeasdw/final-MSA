@@ -313,6 +313,10 @@ kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.ku
 Storage Class 확인
 명령어 : kubectl get storageclass
 
+
+## EFS 설정
+### 아마존웹서비스에서 EFS 검색 후 파일시스템 생성, ID를 저장해둔다.
+
 ![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
 
 ### PVC생성
