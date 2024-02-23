@@ -313,7 +313,8 @@ kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.ku
 Storage Class 확인
 명령어 : kubectl get storageclass
 
-![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/47fe51e9-ac47-449a-a0a9-78de2a7511fd)
+![image](https://github.com/SeoJHeasdw/final-MSA/assets/43021038/86fe00e3-931b-40a8-98a7-ecb25a5be841)
+
 
 
 ## EFS 설정
